@@ -1,0 +1,19 @@
+@import "base/z-index";
+@import "base/vendor/variablesMixins";
+/*------------------*
+# Alert
+*------------------*/
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  right: 35px;
+  bottom: 60px;
+  z-index: z("alert");
+  .alert {
+    &-close {
+      margin-left: auto;
+    }
+  }
+}
+/*# sourceURL=alert.component.scss */

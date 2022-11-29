@@ -1,0 +1,211 @@
+<!-- page title -->
+<div class="row g-0 align-items-start overflow-hidden">
+  <div class="col-sm-auto">
+    <div class="db-page-titles">
+      <h1 class="db-page-title text-tartiary mb-1">Teams</h1>
+      <h4 class="db-page-stat text-gray550 mb-5px">45 Team membars are available</h4>
+    </div>
+    <h2 class="db-page-subtitle text-tartiary">113</h2>
+  </div>
+  <div class="col ms-auto">
+    <div class="row align-items-center justify-content-end">
+      <div class="col-auto mb-2">
+        <div class="input-group">
+          <input type="text" placeholder="Expected Date" class="form-control">
+          <span class="input-group-text">
+            <i class="icon-calendar"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-auto mb-2 ps-md-0">
+        <button class="btn btn-light btn-icon-only text-primary">
+          <i class="icon-text-file"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- page title ends -->
+<!-- Page content box starts -->
+<div class="card mt-3">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+      <div class="col-auto ms-xl-auto mb-2">
+        <select class="form-select">
+          <option value="">Jun 2020 - July 2020</option>
+          <option value="1">Dhaka</option>
+          <option value="2">Gazipur</option>
+          <option value="3">Narayan Gonj</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <select class="form-select">
+          <option value="">--Status--</option>
+          <option value="1">Dhaka</option>
+          <option value="2">Gazipur</option>
+          <option value="3">Narayan Gonj</option>
+        </select>
+
+      </div>
+      <div class="col-auto mb-2">
+        <button class="btn btn-outline-primary btn-with-icon" (click)="openAddTeam();">
+          <i class="icon-add me-3"></i>
+          Add Team
+        </button>
+      </div>
+    </div>
+
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="7" [dataLength]="50" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th class="text-nowrap cursor-pointer">
+          Number
+          <i class="d-inline-flex" class="icon-arrow-down"></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Team Name
+          <i class="d-inline-flex" class="icon-arrow-down rotate-180"></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Identifier
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Supervisor
+        </th>
+        <th class="text-nowrap cursor-pointer text-center">
+          Number Of Member
+          <i class="d-inline-flex" class="icon-arrow-down"></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Date Created
+          <i class="d-inline-flex" class="icon-arrow-down"></i>
+        </th>
+        <th class="text-nowrap text-center">
+          Status
+        </th>
+        <th class="text-nowrap text-center">
+          Action
+        </th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr class="cursor-pointer" (dblclick)="goToTeamDetails()">
+          <td>
+            01
+          </td>
+          <td>
+            Team Shark
+          </td>
+          <td>
+            hjyru456oir
+          </td>
+          <td>
+            Kristin Watson <span class="text-primary">(12 teams)</span>
+          </td>
+          <td>
+            23
+          </td>
+          <td>
+            Sep 3, 2020 8:59 PM
+          </td>
+          <td class="text-center">
+            <div class="form-switch accent-success">
+              <input type="checkbox" class="form-check-input" id="status1" checked>
+              <label for="status1" class="form-check-label"></label>
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="cursor-pointer" (dblclick)="goToTeamDetails()">
+          <td>
+            01
+          </td>
+          <td>
+            Team Shark
+          </td>
+          <td>
+            hjyru456oir
+          </td>
+          <td>
+            Kristin Watson <span class="text-primary">(12 teams)</span>
+          </td>
+          <td>
+            23
+          </td>
+          <td>
+            Sep 3, 2020 8:59 PM
+          </td>
+          <td class="text-center">
+            <div class="form-switch accent-success">
+              <input type="checkbox" class="form-check-input" id="status1">
+              <label for="status1" class="form-check-label"></label>
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="cursor-pointer" (dblclick)="goToTeamDetails()">
+          <td>
+            01
+          </td>
+          <td>
+            Team Shark
+          </td>
+          <td>
+            hjyru456oir
+          </td>
+          <td>
+            Kristin Watson <span class="text-primary">(12 teams)</span>
+          </td>
+          <td>
+            23
+          </td>
+          <td>
+            Sep 3, 2020 8:59 PM
+          </td>
+          <td class="text-center">
+            <div class="form-switch accent-success">
+              <input type="checkbox" class="form-check-input" id="status1" checked>
+              <label for="status1" class="form-check-label"></label>
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+
+  </div>
+</div>
+<!--/ Page content box ends -->

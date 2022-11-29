@@ -1,0 +1,134 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Subscription</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<div class="modal-body row justify-content-center flat-inputs">
+  <div class="col-12 mb-4">
+    <button class="btn btn-dodger-blue btn-lg text-white me-3 rounded-0">Premium Subscription</button>
+    <button class="btn btn-outline-c8c8 btn-lg text-dark rounded-0">Elite Subscription</button>
+  </div>
+  <div class="col-12 mb-3">
+    <div class="d-flex align-items-center mb-3">
+      <div class="circle-21 bg-dodger-blue text-white me-2">1</div>
+      <label>Confirm your billing cycle</label>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-check form-check-inline custom-radio accent-dodger-blue w-100">
+          <input class="form-check-input" type="radio" name="billingCycle" id="monthly">
+          <label class="form-check-label w-100" for="monthly">
+            <span class="">Monthly</span> <br>
+            <span class="text-gray-93">$2,549.00 / month</span>
+          </label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check form-check-inline custom-radio accent-dodger-blue w-100">
+          <input class="form-check-input" type="radio" name="billingCycle" id="annual">
+          <label class="form-check-label w-100" for="annual">
+            <span class="">Annual</span> <br>
+            <span class="text-gray-93">$20,388.00 / year (save $10,200.00)</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mb-4">
+    <div class="card border-dodger-blue border-2">
+      <div class="card-body">
+        <div class="d-flex">
+          <span>Monthly</span>
+          <span class="ms-auto fs-14">$2,549.00</span>
+        </div>
+        <div class="d-flex mt-2">
+          <span>VAT(0%)</span>
+          <span class="ms-auto fs-14">$T0.00</span>
+        </div>
+        <div class="d-flex border-top mt-3 pt-2">
+          <span class="fw-bold">Today's total</span>
+          <span class="ms-auto fw-bold fs-14">$2,549.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mb-4">
+    <div class="d-flex align-items-center mb-3">
+      <div class="circle-21 bg-dodger-blue text-white me-2">2</div>
+      <label>Payment</label>
+    </div>
+    <div class="card border-dodger-blue border-2">
+      <div class="card-header bg-white d-flex align-items-center">
+        <div class="d-flex">
+          <img src="assets/images/visa.svg" alt="visa">
+          <img src="assets/images/master-card.svg" alt="master-card" class="ms-3">
+          <span class="ms-3 fw-bold">Visa-3945</span>
+        </div>
+        <a [routerLink]="[]" class="ms-auto link-dodger-blue fw-bold" (click)="addPaymentMethod = !addPaymentMethod">
+          Add Payment Method
+        </a>
+      </div>
+      <div class="card-body row" *ngIf="addPaymentMethod">
+        <div class="col-12 col-md-8 col-lg-7">
+          <form class="row">
+            <div class="col-12 form-group mb-3">
+              <label for="accNumb">Account Holder Number</label>
+              <input type="text" class="form-control" placeholder="8756 4783 9958 0837">
+            </div>
+            <div class="col-12 form-group mb-3">
+              <label for="cardNumb">Card Number</label>
+              <input type="text" id="cardNumb" class="form-control" placeholder="8756 4783 9958 0837">
+            </div>
+            <div class="col-12 col-lg-6 form-group mb-3">
+              <label for="expDate">Expiry Date</label>
+              <input type="text" id="expDate" class="form-control" placeholder="23/22">
+            </div>
+            <div class="col-12 col-lg-6 form-group mb-3">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" class="form-control" placeholder="234">
+            </div>
+            <div class="col-12 col-lg-6">
+              <button class="btn btn-secondary text-white fw-bold w-100">Review Order</button>
+            </div>
+            <div class="col-12 col-lg-6">
+              <button class="btn btn-c8c8 text-white fw-bold w-100">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-12 col-md-4 col-lg-5 d-flex align-items-center justify-content-center">
+          <img src="assets/images/cc-graphic.png" alt="Credit Card Graphics" class="img-fluid">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mb-3">
+    <div class="d-flex align-items-center mb-3">
+      <div class="circle-21 bg-dodger-blue text-white me-2">3</div>
+      <label>Review your order</label>
+    </div>
+    <div class="card border-dodger-blue border-2">
+      <div class="card-body">
+        <ul>
+          <li>Your plan begins today and renews automatically on July 15, 2022.</li>
+          <li>Your payment method will be charged $2,549.00 each month (tax included).</li>
+          <li>The plan will automatically renew each month until cancelled. To avoid charges for the next month, cancel before the renewal date.</li>
+        </ul>
+        <div class="p-4 bg-gray-1 mb-4 fs-11">
+          By placing this order you agree to our <a [routerLink]="[]" class="link-dodger-blue fw-bold">terms of service</a>. To ensure continued
+          service, we'll store and update (e.g., upon expiration) your
+          payment method. Learn about <a [routerLink]="[]" class="link-dodger-blue fw-bold">how to cancel</a> and our <a [routerLink]="[]"
+            class="link-dodger-blue fw-bold">refund policy</a>. Prices may change.
+        </div>
+        <div class="text-center">
+          <button class="btn btn-secondary text-white fw-bold col-5">Place order</button>
+          <div class="clearFix"></div>
+          <button class="btn btn-link fw-bold col-5">Secure Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div>
+  <div class="{{'card border-0' +' '+ cardInformation.className}}">
+    <div class="card-body">
+      <h5 class="card-title fs-36 fw-800 lh-48"
+          [ngStyle]="{
+          'color': cardInformation.color
+          }">{{cardInformation.count}}</h5>
+      <p class="my-3 event-card">{{cardInformation.description}}</p>
+      <a href="#"
+         class="event-card-apply-filter"
+         [ngStyle]="{
+         'color': cardInformation.color,
+         'border-color': cardInformation.color
+         }">Apply filters</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "angular",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "type": "npm",
+      "script": "start",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

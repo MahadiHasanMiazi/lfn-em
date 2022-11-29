@@ -1,0 +1,50 @@
+<div class="profile-sidebar">
+  <ng-container *ngIf="type == 1">
+    <div class="profile-cover">
+      <img [src]="sidebarTopInfo.coverImgUrl" alt="">
+      <a [routerLink]="[]">
+        <i class="icon-action rotate-90 d-inline-block"></i>
+      </a>
+      <div class="logo">
+        <img [src]="sidebarTopInfo.logoUrl" alt="">
+      </div>
+    </div>
+    <div class="info">
+      <h3>{{sidebarTopInfo.name}} <i class="icon-verify verified"></i></h3>
+      <p>(406) 555-0120</p>
+      <!-- 
+      <button class="btn btn-primary-light rounded-pill btn-sm mx-auto mt-3">Premium</button> -->
+    </div>
+  </ng-container>
+  <ng-container *ngIf="type == 2">
+    <div class="profile-cover type-2">
+      <a [routerLink]="[]">
+        <i class="icon-action rotate-90 d-inline-block"></i>
+      </a>
+      <div class="logo">
+        <img [src]="sidebarTopInfo.logoUrl" alt="">
+      </div>
+    </div>
+    <div class="info">
+      <h3>{{sidebarTopInfo.name}} <i class="icon-verify verified"></i></h3>
+      <p class="mb-2">(406) 555-0120</p>
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="circle-29 d-flex align-items-center justify-content-center bg-success me-1">
+          <i class="icon-school text-white"></i>
+        </div>
+        <div class="circle-29 d-flex align-items-center justify-content-center bg-secondary me-1">
+          <i class="icon-img text-white"></i>
+        </div>
+        <div class="circle-29 d-flex align-items-center justify-content-center bg-warning me-1">
+          <i class="icon-layers text-white"></i>
+        </div>
+      </div>
+      <!-- <button class="btn btn-primary-light rounded-pill btn-sm mx-auto mt-3">Premium</button> -->
+    </div>
+  </ng-container>
+  <div class="sidebar-nav">
+    <ul class="list-unstyled">
+      <ng-content [select]="innerSidebarNav"></ng-content>
+    </ul>
+  </div>
+</div>

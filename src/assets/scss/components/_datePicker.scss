@@ -1,0 +1,78 @@
+/*------------------*
+# Datepicker
+*------------------*/
+
+ngb-datepicker {
+  &.dropdown-menu {
+    min-width: 220px;
+  }
+  .ngb-dp {
+    &-navigation-select {
+      flex: 1 1 100%;
+      select {
+        border-color: $input-border-color;
+        color: $input-color;
+        border-radius: 4px;
+        &:focus-visible {
+          outline: 0px;
+        }
+      }
+    }
+    &-arrow,
+    &-arrow-right {
+      .btn-link {
+        height: auto;
+        color: $gray-550;
+      }
+    }
+    &-content {
+      display: flex;
+      width: 100%;
+      justify-content: stretch;
+    }
+    &-month {
+      width: 100%;
+      ngb-datepicker-month {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+    &-months {
+      &.ngb-dp-content {
+        @include media-breakpoint-down(sm) {
+          flex-wrap: wrap;
+          width: auto !important;
+        }
+      }
+    }
+    &-weekdays {
+      background-color: #f7f7f7;
+    }
+    &-weekday {
+      font-style: normal;
+      color: $primary;
+      text-transform: uppercase;
+    }
+    &-day {
+      .custom-day {
+        text-align: center;
+        height: 32px;
+        line-height: 32px;
+        border-radius: $input-border-radius;
+        width: auto;
+      }
+      .btn-light {
+        width: auto;
+        color: $body-color;
+      }
+    }
+    &-weekday,
+    &-day {
+      width: 14.28%;
+    }
+  }
+  &.fullWidthDp {
+    width: 100%;
+  }
+}

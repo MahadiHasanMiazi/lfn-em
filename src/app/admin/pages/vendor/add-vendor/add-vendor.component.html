@@ -1,0 +1,180 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Add Vendor</h4>
+    <a
+      [routerLink]="[]"
+      class="btn-link modal-close"
+      aria-label="Close"
+      (click)="_modal.close()"
+    >
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form
+      class="row flat-inputs"
+      [formGroup]="addVendorForm"
+      #addVendorFormRef="ngForm"
+    >
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="">Vendor Logo</label>
+        <app-dropzone
+          (onFileRemoved)="uploadedFileRemoved($event)"
+          (onFileUpload)="uploadFile($event)"
+          [dropZoneLabel]="'Click or drag and drop logo here to upload'"
+        ></app-dropzone>
+      </div>
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="">Cover Image</label>
+        <app-dropzone
+          (onFileRemoved)="uploadedFileRemoved($event)"
+          (onFileUpload)="uploadFile($event)"
+          [dropZoneLabel]="'Click or drag and drop logo here to upload'"
+        ></app-dropzone>
+      </div>
+
+      <div class="col-12">
+        <h5 class="fs-18 fw-700 text-secondary">Vendor Information </h5>
+      </div>
+
+      <input-field
+        label="Vendor name"
+        [required]="true"
+        [placeholder]="'Enter your vendor Name'"
+        [parentForm]="addVendorForm"
+        [fieldName]="'vendorName'"
+        [parentFormRef]="addVendorFormRef"
+        formControlName="vendorName"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <!-- <input
+          type="text"
+          id="name"
+          placeholder="Enter your Company Name"
+          class="form-control"
+          formControlName="vendorName"
+        >
+
+        <div
+          class="text-danger"
+          *ngIf="addVendorFields.FirstName?.errors?.required && addVendorFormRef.submitted"
+        >
+          Vendor name cannot be empty.
+        </div> -->
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="vendorType">Vendor Type <span class="text-danger">*</span></label>
+        <select
+          name=""
+          id="vendorType"
+          class="form-select"
+          formControlName="vendorType"
+        >
+          <option value="">--Select--</option>
+          <option value="global">Global</option>
+          <option value="local">Local</option>
+        </select>
+        <field-errors
+          name="Vendor type"
+          [formField]="addVendorForm.controls.vendorType"
+          [formRef]="addVendorFormRef"
+        ></field-errors>
+      </div>
+
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <address-auto-google
+          formControlName="address"
+          (onAddressChange)="addressSelected($event)"
+        ></address-auto-google>
+        <field-errors
+          [name]="'Address'"
+          [formField]="addVendorForm.controls.address"
+          [formRef]="addVendorFormRef"
+        ></field-errors>
+      </div>
+
+      <input-field
+        [label]="'Suite/Apt/Location'"
+        [placeholder]="'Enter your Suite/Apt/Location'"
+        [fieldName]="'suite'"
+        [parentForm]="addVendorForm"
+        [parentFormRef]="addVendorFormRef"
+        formControlName="suite"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <div class="col-12">
+        <h5 class="fs-18 fw-700 text-secondary"> Contact Person </h5>
+      </div>
+
+      <input-field
+        [label]="'First name'"
+        [required]="true"
+        [placeholder]="'Enter your first name'"
+        formControlName="firstName"
+        [fieldName]="'firstName'"
+        [parentForm]="addVendorForm"
+        [parentFormRef]="addVendorFormRef"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <input-field
+        [label]="'Last name'"
+        [required]="true"
+        [placeholder]="'Enter your first name'"
+        formControlName="lastName"
+        [fieldName]="'lastName'"
+        [parentForm]="addVendorForm"
+        [parentFormRef]="addVendorFormRef"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <input-field
+        [label]="'Email'"
+        [required]="true"
+        [placeholder]="'Enter your first name'"
+        formControlName="email"
+        [fieldName]="'email'"
+        [parentForm]="addVendorForm"
+        [parentFormRef]="addVendorFormRef"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="contactNumber">Contact Person Number <span class="text-danger">*</span></label>
+        <intl-input-phone
+          [SelectedCountryISOCode]="intlPhoneConfig.SelectedCountryISOCode | async"
+          [NumberTextValue]="intlPhoneConfig.NumberModel | async"
+          (OnNumberChange)="intlPhoneConfig.onNumberChage($event)"
+          (OnIsRequiredChange)="intlPhoneConfig.requiredFlagChange($event)"
+          [ConfigurationOption]="intlPhoneConfig.configOption"
+          formControlName="phone"
+        >
+        </intl-input-phone>
+        <field-errors
+          name="Contact person number"
+          [formField]="addVendorForm.controls.phone"
+          [formRef]="addVendorFormRef"
+        ></field-errors>
+      </div>
+
+      <div class="clearfix mb-3"></div>
+      <div class="col-12 col-md-6">
+        <button
+          [disabled]="isLoading"
+          type="submit"
+          (click)="handleSubmitAddVendorForm()"
+          class="btn btn-secondary text-white text-capitalize w-100 fw-bold btn-with-loader"
+        >
+          Submit
+          <btn-loader *ngIf="isLoading"></btn-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<header class="dashbaord-header">
+  <nav class="navbar navbar-expand">
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#headerNav" aria-controls="headerNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon icon-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="headerNav">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item d-flex align-items-center">
+          <a class="nav-link active" aria-current="page" routerLink="./">
+            <i class="icon-bell"></i>
+          </a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <a class="nav-link" routerLink="./">
+            <i class="icon-message"></i>
+          </a>
+        </li>
+
+        <!-- <li class="nav-item">
+          <select #langselect (change)="translate.use(langselect.value)">
+            <option *ngFor="let lang of translate.getLangs()" value="{{lang}}">{{lang}}</option>
+          </select>
+        </li> -->
+      </ul>
+      <div ngbDropdown class="d-inline-block" placement="bottom-right">
+        <a [routerLink]="[]" class="d-flex align-items-center no-drop-icon" ngbDropdownToggle>
+          <div class="header-user">
+            <div class="user-thumb">
+              <img src="assets/images/male-avatar.jpg" alt="">
+              <!-- <span>AH</span> -->
+              <!-- <img *ngIf="myProfile.ProPic != ''" src="{{baseUrl}}/Media/Profiles/{{myProfile.ProPic}}" alt=""> -->
+            </div>
+            <div class="user-info">
+              <!-- <h5 class="user-name">{{myProfile.FirstName}} {{myProfile.LastName}}</h5> -->
+              <h5 class="user-name">{{this.profileName}}</h5>
+            </div>
+          </div>
+          <span class="header-dropdown">
+            <i class="icon-angle-down"></i>
+          </span>
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu dropdown-menu-end">
+          <button ngbDropdownItem>My Account</button>
+          <button  ngbDropdownItem>Settings</button>
+          <button (click)="logOut()" ngbDropdownItem>Logout</button>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>

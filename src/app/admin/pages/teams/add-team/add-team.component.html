@@ -1,0 +1,73 @@
+<!-- Modal Header Starts -->
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">{{isUpdate ? 'Edit Team':'Add New Team' }}</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<!-- / Modal header ends -->
+<!-- Modal body starts -->
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form class="row flat-inputs">
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="identifier">Identifier <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" id="identifier" placeholder="Please type the identifier">
+        <span class="text-danger">
+          Identifier is required
+        </span>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="teamName">Team Name <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" id="teamName" placeholder="Please type the Team Name">
+        <span class="text-danger">
+          Team name is required
+        </span>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="teamDescription">Team Description <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" id="teamDescription" placeholder="Please type Team description">
+        <span class="text-danger">
+          Team description is required
+        </span>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="reportTo">Report To</label>
+        <select name="" id="reportTo" class="form-select">
+          <option value="">--Select name--</option>
+          <option value="kirsten">Kirsten Stewert</option>
+          <option value="jennyWilson">Jenny Wilson</option>
+          <option value="Darlen">Darlene Robertson</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="location">Location</label>
+        <input type="text" placeholder="Please type location" class="form-control">
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="supervisor">Supervisor</label>
+        <select name="" id="supervisor" class="form-select">
+          <option value="">Select supervisor</option>
+          <option value="kirsten">Kirsten Stewert</option>
+          <option value="jennyWilson">Jenny Wilson</option>
+          <option value="Darlen">Darlene Robertson</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3" *ngIf="!isUpdate">
+        <label for="numOfMember">Number of Member</label>
+        <input type="text" id="numOfMember" placeholder="e.g: 50" class="form-control">
+      </div>
+
+      <div class="clearfix mb-4"></div>
+      <div class="col-12 col-md-6">
+        <button [disabled]="isLoading" class="btn btn-secondary text-white text-capitalize w-100 btn-with-loader">
+          Add Team
+          <btn-loader *ngIf="isLoading"></btn-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!--/Modal body ends -->

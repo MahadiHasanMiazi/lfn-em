@@ -1,0 +1,35 @@
+<div class="row g-0 vh-100">
+  <div class="col h-100 lfn-admin-login-bg">
+    <a href="https://www.livingfitnation.com/">
+      <img
+        src="assets/images/lfn-logo-1.svg"
+        alt="LFN"
+        class="lfn-logo me-4"
+      />
+    </a>
+
+    <h2 class="text-white logo-text">
+      Did you find the <br />
+      solution?
+    </h2>
+  </div>
+
+
+  <div
+    class="col-lg-8 col-xl-5 h-100 login-form-column position-relative"
+    *ngIf="formToShow == 'login'"
+  >
+    <app-login-form
+      [subject]="loginFormSubmissionSubject"
+      (onClickForgotPassword)="formToShow = 'forgot-password'"
+      (onComplete)="onLoginFormComplete()"
+    ></app-login-form>
+  </div>
+
+  <app-forgot-password-form
+    class="col-md-6 col-xl-5 h-100 login-form-column position-relative"
+    *ngIf="formToShow == 'forgot-password'"
+    (onClickSignIn)="formToShow = 'login'"
+    (onComplete)="formToShow = 'login'"
+  ></app-forgot-password-form>
+</div>

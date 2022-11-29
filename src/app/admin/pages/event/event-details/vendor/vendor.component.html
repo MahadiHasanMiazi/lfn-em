@@ -1,0 +1,237 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="section-title-2 border-c8c8 mb-4">
+      <h2 class="border-c8c8">Vendor Category Requirement</h2>
+      <a [routerLink]="[]" class="ms-auto text-gray550">
+        <i class="icon-edit fs-18"></i>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <table class="table table-borderless table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold align-middle">Nutritionists</td>
+              <td class="fw-bold align-middle" style="width: 40px;">1</td>
+              <td class="fw-bold" style="width: 40px;">
+                <i class="icon-verify fs-16 align-middle text-success"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <table class="table table-borderless table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold align-middle">Chiropractors</td>
+              <td class="fw-bold align-middle" style="width: 40px;">1</td>
+              <td class="fw-bold" style="width: 40px;">
+                <i class="icon-verify fs-16 align-middle text-success"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <table class="table table-borderless table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold align-middle">Massage</td>
+              <td class="fw-bold align-middle" style="width: 40px;">1</td>
+              <td class="fw-bold" style="width: 40px;">
+                <i class="icon-verify fs-16 align-middle text-success"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <table class="table table-borderless table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold align-middle">Dental Office </td>
+              <td class="fw-bold align-middle" style="width: 40px;">1</td>
+              <td class="fw-bold" style="width: 40px;">
+                <i class="icon-verify fs-16 align-middle text-success"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <table class="table table-borderless table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold align-middle">Acupuncture </td>
+              <td class="fw-bold align-middle" style="width: 40px;">0</td>
+              <td class="fw-bold" style="width: 40px;">
+                <i class="icon-warning-o fs-16 align-middle text-gray550"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <table class="table table-borderless table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold align-middle">Hearing Professionals </td>
+              <td class="fw-bold align-middle" style="width: 40px;">0</td>
+              <td class="fw-bold" style="width: 40px;">
+                <i class="icon-warning-o fs-16 align-middle text-danger"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+      <div class="col-auto mb-2 ms-xl-auto">
+        <select class="form-select">
+          <option value="" selected>Category</option>
+          <option value="nutritionists">Nutritionists</option>
+          <option value="yoga">Yoga</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <select class="form-select">
+          <option value="" selected>Status</option>
+          <option value="invited">Invited</option>
+          <option value="notGoing">Not Going</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <button class="btn btn-with-icon btn-outline-success fw-bold" (click)="openInviteVendor()">
+          <i class="icon-arrow-right-o me-2"></i>
+          Invite Vendor
+        </button>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="11" [dataLength]="100" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="all">
+            <label for="all">All</label>
+          </div>
+        </th>
+        <th>
+          Vendor Name
+        </th>
+        <th>
+          Contact Person Name
+        </th>
+        <th>
+          Phone
+        </th>
+        <th>
+          Address
+        </th>
+        <th>
+          Status
+        </th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="1">
+            </div>
+          </td>
+          <td>
+            Nutritionists
+          </td>
+          <td>
+            Cameron Williamson
+          </td>
+          <td>
+            (316) 555-0116
+          </td>
+          <td>
+            2118 Thornridge Cir. Syracuse, Connecticut 35624
+          </td>
+          <td class="text-primary">
+            Invited
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="2">
+            </div>
+          </td>
+          <td>
+            Acupuncture
+          </td>
+          <td>
+            Courtney Henry
+          </td>
+          <td>
+            (219) 555-0114
+          </td>
+          <td>
+            4517 Washington Ave. Manchester, Kentucky 39495
+          </td>
+          <td class="">
+            Accepted
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="3">
+            </div>
+          </td>
+          <td>
+            Yoga
+          </td>
+          <td>
+            Courtney Henry
+          </td>
+          <td>
+            (219) 555-0114
+          </td>
+          <td>
+            2464 Royal Ln. Mesa, New Jersey 45463
+          </td>
+          <td class="text-danger">
+            Declined
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="4">
+            </div>
+          </td>
+          <td>
+            Massage
+          </td>
+          <td>
+            Arlene McCoy
+          </td>
+          <td>
+            (702) 555-0122
+          </td>
+          <td>
+            3891 Ranchview Dr. Richardson, California 62639
+          </td>
+          <td class="">
+            Not Action
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>

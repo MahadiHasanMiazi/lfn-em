@@ -1,0 +1,13 @@
+/*------------------*
+# Event Settings
+*------------------*/
+.event-intervals {
+  ngb-timepicker {
+    .ngb-tp-input-container {
+      width: 46px;
+      .form-control {
+        padding: 9px 10px 8px 10px;
+      }
+    }
+  }
+}

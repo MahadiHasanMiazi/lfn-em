@@ -1,0 +1,162 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Add Event</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form class="row flat-inputs">
+      <div class="col-12 col-md-6 from-group mb-3">
+        <label for="district">Select District</label>
+        <select name="" id="district" class="form-select">
+          <option value="">Select</option>
+          <option value="">Human Resource Management</option>
+          <option value="">Yoga</option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6 from-group mb-3">
+        <label for="client">Select Account/Client</label>
+        <select name="client" id="client" class="form-select">
+          <option value="">Select</option>
+          <option value="">Cocacola</option>
+          <option value="">RedLime Solutions</option>
+        </select>
+      </div>
+      <div class="col-12 form-group mb-3">
+        <label for="evName">Event Name</label>
+        <input type="text" class="form-control" placeholder="State & Crystal Events">
+      </div>
+      <div class="col-12 form-group mb-3">
+        <label for="">Event Image</label>
+        <app-dropzone (onFileRemoved)="uploadedImageRemoved($event)"></app-dropzone>
+      </div>
+      <div class="col-12 col-md-6 from-group mb-3">
+        <label for="">Event Date</label>
+        <div class="input-group">
+          <input type="text" placeholder="mm/dd/yy" class="form-control">
+          <span class="input-group-text">
+            <i class="icon-calendar"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 from-group mb-3">
+        <label for="">Event Time</label>
+        <div class="input-group">
+          <input type="text" placeholder="10:00 Am - 6 Pm" class="form-control">
+          <span class="input-group-text">
+            <i class="icon-time"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 form-group mb-3">
+        <address-auto-google (onAddressChange)="addressSelected($event)"></address-auto-google>
+      </div>
+      <div class="col-12 form-group mb-3">
+        <label for="suite">Suite/Apt/Location</label>
+        <input type="text" class="form-control" id="suite" placeholder="13/6/2A, Road:2">
+      </div>
+      <div class="col-12 form-group mb-3">
+        <label>Address</label>
+        <p>Hilton Hawaiian Village Waikiki Beach Resort, Kālia Road,
+        </p>
+        <p>Honolulu, HI, USA</p>
+        <p>13/6/2A, Road: 2</p>
+      </div>
+      <div class="col-12 form-group mb-3">
+        <google-map [latLng]="latLong"></google-map>
+      </div>
+      <div class="col-12 form-group mb-3">
+        <label for="desc">Description/Notes</label>
+        <textarea id="desc" rows="10" class="form-control" style="height: 64px;" placeholder="type Event description here"></textarea>
+      </div>
+      <div class="col-12 mb-3">
+        <label>Other Services</label>
+        <hr class="bg-gray550 mt-2">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="bioMetrics" (change)="includeBiometrics = !includeBiometrics;">
+              <label for="bioMetrics" class="form-check-label fw-bold">
+                Bio Metrics
+              </label>
+            </div>
+            <div [ngClass]="{'disabled': !includeBiometrics}">
+              <div class="mb-2">
+                <autocomplete-dropdown [multiSelect]="true" [dropdownList]="biometricsList" [name]="'Bio Metrics'"
+                  [selectedItems]="selectedBiometricsList" (selected)="biometricsSelected($event)">
+                </autocomplete-dropdown>
+              </div>
+              <div class="mt-2 mb-1" *ngIf="(selectedBiometricsList | json) != {}">
+                <div class="badge badge-closable rounded-pill text-gray-93 bg-gray-1" *ngFor="let selectedBiometric of selectedBiometricsList">
+                  {{selectedBiometric}}
+                  <a [routerLink]="[]" class="ms-3 d-inline-flex text-gray-93 cursor-pointer" (click)="removeSelectedBiometric(selectedBiometric)">
+                    <i class="icon-close"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="vaccination" (change)="includeVaccination = !includeVaccination">
+              <label for="vaccination" class="form-check-label fw-bold">
+                Vaccination
+              </label>
+            </div>
+            <div [ngClass]="{'disabled': !includeVaccination}">
+              <div class="mb-2">
+                <autocomplete-dropdown [multiSelect]="true" [dropdownList]="vaccinationList" (selected)="vaccinationSelected($event)">
+                </autocomplete-dropdown>
+              </div>
+              <div class="mt-2 mb-1" *ngIf="(selectedVaccinationList | json) != {}">
+                <div class="badge badge-closable rounded-pill text-gray-93 bg-gray-1" *ngFor="let selectedVaccination of selectedVaccinationList">
+                  {{selectedBiometric}}
+                  <a [routerLink]="[]" class="ms-3 d-inline-flex text-gray-93 cursor-pointer" (click)="removeSelectedVaccination(selectedBiometric)">
+                    <i class="icon-close"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="bg-gray550">
+      </div>
+      <div class="col-12 col-md-6 mb-3">
+        <label for="qrCode">QR Code</label>
+        <div>
+          <img src="assets/images/QR_Code.png" alt="qrCode" class="">
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-3 d-flex flex-column align-items-end">
+        <div>
+          <label for="name">Status <sup class="text-danger">*</sup></label>
+          <div class="form-group mb-5">
+            <div class="form-check form-check-inline custom-radio">
+              <input class="form-check-input" type="radio" name="status" id="active">
+              <label class="form-check-label" for="active">Active</label>
+            </div>
+            <div class="form-check form-check-inline custom-radio">
+              <input class="form-check-input" type="radio" name="status" id="inactive">
+              <label class="form-check-label" for="inactive">Inactive</label>
+            </div>
+          </div>
+          <button class="btn btn-secondary fw-bold btn-with-loader text-white w-100">
+            Submit
+            <btn-loader *ngIf="isLoading"></btn-loader>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-5 form-group">
+
+      </div>
+      <div class="clearFix"></div>
+      <div class="col-12 col-md-6">
+
+      </div>
+    </form>
+  </div>
+</div>

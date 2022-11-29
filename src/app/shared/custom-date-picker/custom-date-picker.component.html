@@ -1,0 +1,11 @@
+<!-- <input type="text" class="form-control" [disabled]="disabled" [value]="value" (input)="onChange($event.target.value)" (blur)="onTouched()"> -->
+
+<div class="input-group">
+  <input [(ngModel)]="value" class="form-control" placeholder="Date of birth (mm/dd/yyyy)" name="dp" [maxDate]="maximumDate" [minDate]="minimumDate"
+    ngbDatepicker #d="ngbDatepicker" (focus)="toggleDatePicker()" (input)="inputDateFRomCalender($event.target.value)"
+    (keypress)="($event.charCode >= 48 && $event.charCode < 58)" (blur)="onBlurMethodDateOfBirth($event.target.value)"
+    (dateSelect)="onDateSelect($event)" [datepickerMask]="value" [placement]="'bottom-left'">
+  <span class="input-group-text" (click)="d.open()">
+    <i class="icon-calendar"></i>
+  </span>
+</div>

@@ -1,0 +1,25 @@
+<!-- Details page title starts -->
+<div class="row g-0 align-items-center overflow-hidden mb-4">
+  <div class="col-sm-auto">
+    <div class="db-page-titles mb-2">
+      <h1 class="db-page-title text-tartiary mb-0">Event details</h1>
+    </div>
+    <a routerLink="/admin/event/" class="d-flex align-items-center">
+      <i class="icon-arrow-left-o d-inline-flex me-2"></i>
+      Back to event List
+    </a>
+  </div>
+  <div class="col-auto ms-auto">
+    <a routerLink="./dashboard" pathMatch="full" routerLinkActive="active" class="btn btn-link text-c7373 text-decoration-none fw-bold">Event Dash</a>
+    <button class="btn btn-link text-c7373 text-decoration-none fw-bold">Invitation Design</button>
+    <a routerLink="./manage-invitation" routerLinkActive="active" class="btn btn-link text-c7373 text-decoration-none fw-bold">Manage
+      Invitation</a>
+    <a routerLink="./vendor" routerLinkActive="active" class="btn btn-link text-c7373 text-decoration-none fw-bold">Vendor</a>
+    <a routerLink="./lfn-staff" routerLinkActive="active" class="btn btn-link text-c7373 text-decoration-none fw-bold">LFN Staff</a>
+    <a routerLink="./manifest" routerLinkActive="active" class="btn btn-link text-c7373 text-decoration-none fw-bold">Event Manifest</a>
+    <a routerLink="./note" routerLinkActive="active" class="btn btn-link text-c7373 text-decoration-none fw-bold">Note</a>
+    <button class="btn btn-link text-c7373 text-decoration-none fw-bold">Billing</button>
+  </div>
+</div>
+<!-- Details page title ends -->
+<router-outlet></router-outlet>

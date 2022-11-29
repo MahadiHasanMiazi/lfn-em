@@ -1,0 +1,28 @@
+<registration-form-wrapper [stepNo]="1">
+  <ng-container form-heading>
+    <h3 class="text-dark text-center mb-80"><b>Create Your Account</b></h3>
+  </ng-container>
+
+  <form class="">
+    <div class="form-group mb-20">
+      <div class="login-inputs input-group">
+        <input maxlength="100" type="text" class="form-control disabled" [disabled]="true" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"
+          placeholder="Company email address">
+      </div>
+      <!-- <div class="text-danger" *ngIf="loginFields.email?.errors?.required && loginFormRef.submitted">
+        Please type your email address.
+      </div>
+      <div class="text-danger" *ngIf="loginFields.email?.errors?.email && loginFormRef.submitted">
+        Email address is invalid.
+      </div> -->
+    </div>
+
+    <div class="d-flex justify-content-center mt-120">
+      <button type="submit" class="btn btn-lg btn-secondary rounded-pill text-white text-capitalize btn-with-loader px-45" [disabled]="email == ''"
+        (click)="submit()">
+        Continue
+        <btn-loader *ngIf="isLoading"></btn-loader>
+      </button>
+    </div>
+  </form>
+</registration-form-wrapper>

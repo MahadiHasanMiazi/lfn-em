@@ -1,0 +1,30 @@
+<registration-form-wrapper [stepNo]="6">
+  <ng-container form-heading>
+    <h3 class="text-dark text-center mb-80"><b>Create Your Account</b></h3>
+  </ng-container>
+  <form [formGroup]="addressFormGroup" #addressForm="ngForm" class="">
+    <div class="form-group mb-20">
+      <address-auto-google (onAddressChange)="addressSelected($event)" formControlName="Address"></address-auto-google>
+      <div class="text-danger" *ngIf="addressFormFields.Address?.errors?.required && addressForm.submitted">
+        Address cannot be empty.
+      </div>
+    </div>
+    <div class="form-group mb-20">
+      <input type="text" class="form-control" placeholder="Suit/Apt/Location" formControlName="Location">
+      <div class="text-danger" *ngIf="addressFormFields.Location?.errors?.required && addressForm.submitted">
+        Location cannot be empty.
+      </div>
+    </div>
+    <div class="form-group mb-20" *ngIf="!!addressFormFields.Address.value && !!addressFormFields.Location.value">
+      <label>Address</label>
+      <p>{{addressFormFields.Address.value}}</p>
+      <p>{{ addressFormFields.Location.value}}</p>
+    </div>
+    <div class="d-flex justify-content-center mt-120">
+      <button type="submit" class="btn btn-lg btn-secondary rounded-pill text-white text-capitalize btn-with-loader px-45" (click)="submit()">
+        Continue
+        <btn-loader *ngIf="isLoading"></btn-loader>
+      </button>
+    </div>
+  </form>
+</registration-form-wrapper>

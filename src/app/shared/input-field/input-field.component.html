@@ -1,0 +1,27 @@
+<label [for]="id">
+  {{label | titlecase}}
+  <span
+    class="text-danger"
+    *ngIf="required"
+  >*</span>
+</label>
+<input
+  type="text"
+  [id]="id"
+  [placeholder]="placeholder"
+  class="form-control"
+  [value]="value"
+  (input)="this.onChange($event.target.value)"
+  (blur)="onTouched($event.target.value)"
+  [disabled]="disabled"
+>
+
+<field-errors
+  [formField]="formField"
+  [formRef]="parentFormRef"
+  [name]="label"
+></field-errors>
+
+<!-- <div class="text-danger" *ngIf="addVendorFields.FirstName?.errors?.required && addVendorFormRef.submitted">
+  Vendor name cannot be empty.
+</div> -->

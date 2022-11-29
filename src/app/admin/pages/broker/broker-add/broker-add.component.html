@@ -1,0 +1,142 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Add broker</h4>
+    <a class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form class="row flat-inputs" [formGroup]="addBrokerForm" (submit)="handleAddBrokerSubmit()"
+          #addBrokerFormRef="ngForm">
+<!--      <div class="col-12 col-md-6 form-group mb-3">-->
+<!--        <label>Broker Logo</label>-->
+<!--        <app-dropzone-->
+<!--          (onFileRemoved)="uploadedFileRemoved($event)"-->
+<!--          (onFileUpload)="uploadFile($event)"-->
+<!--          [dropZoneLabel]="'Click or drag and drop logo here to upload'"-->
+<!--        ></app-dropzone>-->
+<!--      </div>-->
+
+<!--      <div class="col-12 col-md-6 form-group mb-3">-->
+<!--        <label>Cover Image</label>-->
+<!--        <app-dropzone-->
+<!--          (onFileRemoved)="uploadedFileRemoved($event)"-->
+<!--          (onFileUpload)="uploadFile($event)"-->
+<!--          [dropZoneLabel]="'Click or drag and drop logo here to upload'"-->
+<!--        ></app-dropzone>-->
+<!--      </div>-->
+      <h5 class="fs-18 fw-700 text-secondary">Broker Information</h5>
+      <input-field
+        label="Broker Name"
+        [required]="false"
+        placeholder="Enter your Company Name"
+        [parentForm]="addBrokerForm"
+        fieldName="name"
+        [parentFormRef]="addBrokerFormRef"
+        formControlName="name"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <div class="clearfix"></div>
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <address-auto-google formControlName="address1"
+                             (onAddressChange)="addressSelected($event)"></address-auto-google>
+        <div
+          *ngIf="addBrokerForm.controls.address1.invalid && (addBrokerForm.controls.address1.dirty || addBrokerForm.controls.address1.touched)"
+          class="text-danger">
+          <div *ngIf="addBrokerForm.controls.address1.errors?.required">
+            Address is required
+          </div>
+        </div>
+      </div>
+
+      <input-field
+        label="Address 2"
+        [required]="false"
+        placeholder="Enter your Company Name"
+        [parentForm]="addBrokerForm"
+        fieldName="address2"
+        [parentFormRef]="addBrokerFormRef"
+        formControlName="address2"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <input-field
+        label="Number of Employees"
+        [required]="false"
+        placeholder="500"
+        [parentForm]="addBrokerForm"
+        fieldName="numberOfEmployees"
+        [parentFormRef]="addBrokerFormRef"
+        formControlName="numberOfEmployees"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+
+      <div class="col-12">
+        <h5 class="fs-18 fw-700 text-secondary">Contact Person</h5>
+      </div>
+
+      <input-field
+        label="First Name"
+        [required]="false"
+        placeholder="Guy Hawkins"
+        [parentForm]="addBrokerForm"
+        fieldName="contactPerson__firstName"
+        [parentFormRef]="addBrokerFormRef"
+        formControlName="contactPerson__firstName"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <input-field
+        label="Last Name"
+        [required]="false"
+        placeholder="(208) 555-0112"
+        [parentForm]="addBrokerForm"
+        fieldName="contactPerson__lastName"
+        [parentFormRef]="addBrokerFormRef"
+        formControlName="contactPerson__lastName"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <input-field
+        label="Email"
+        [required]="false"
+        placeholder="info@email.com"
+        [parentForm]="addBrokerForm"
+        fieldName="contactPerson__email"
+        [parentFormRef]="addBrokerFormRef"
+        formControlName="contactPerson__email"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <!--phone-->
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="contactPerson__phone">Contact Person Number</label>
+        <intl-input-phone
+          [SelectedCountryISOCode]="intlPhoneConfig.SelectedCountryISOCode | async"
+          [NumberTextValue]="intlPhoneConfig.NumberModel | async"
+          (OnNumberChange)="intlPhoneConfig.onNumberChage($event)"
+          (OnIsRequiredChange)="intlPhoneConfig.requiredFlagChange($event)"
+          [ConfigurationOption]="intlPhoneConfig.configOption"
+          formControlName="contactPerson__phone"
+        >
+        </intl-input-phone>
+      </div>
+
+      <div class="clearfix mb-4"></div>
+      <!-- -->
+      <div class="col-12 col-md-6">
+        <button [disabled]="isLoading" class="btn btn-secondary text-white text-capitalize w-100 btn-with-loader">
+          Add new broker
+          <btn-loader *ngIf="isLoading"></btn-loader>
+        </button>
+      </div>
+      <!-- -->
+    </form>
+  </div>
+</div>

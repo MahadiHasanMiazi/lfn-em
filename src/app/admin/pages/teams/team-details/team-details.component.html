@@ -1,0 +1,177 @@
+<!-- Details page title -->
+<div class="row g-0 align-items-start overflow-hidden mb-4">
+  <div class="col-sm-auto">
+    <a routerLink="/admin/teams/" class="d-flex align-items-center text-primary mb-2">
+      <i class="icon-arrow-left-o d-inline-flex me-2"></i>
+      Back to client List
+    </a>
+    <div class="db-page-titles mb-0">
+      <h1 class="db-page-title text-tartiary mb-0">Team Shark</h1>
+    </div>
+
+  </div>
+</div>
+<!-- Details page title ends -->
+<!-- Page content box starts -->
+<div class="card mt-3">
+  <div class="card-header d-flex align-items-center bg-white">
+    <h5 class="form-title mb-0 text-black">Team Shark</h5>
+    <button class="btn btn-light btn-icon-only px-10 text-dark ms-auto" (click)="openEditTeam();">
+      <i class="icon-edit"></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="table-responsive mx-n3 pb-0">
+          <table class="table table-borderless table-sm align-middle mb-0">
+            <tbody>
+              <tr>
+                <td class="fs-15 fw-bold">Name</td>
+                <td class="fs-15 fw-bold text-gray550">Team Shark</td>
+              </tr>
+              <tr>
+                <td class="fs-15 fw-bold">Location</td>
+                <td class="fs-15 fw-bold text-gray550">Dhaka</td>
+              </tr>
+              <tr>
+                <td class="fs-15 fw-bold">Description</td>
+                <td class="fs-15 fw-bold text-gray550">Nothing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="table-responsive mx-n3 pb-0">
+          <table class="table table-borderless table-sm align-middle mb-0">
+            <tbody>
+              <tr>
+                <td class="fs-15 fw-bold">Identifier</td>
+                <td class="fs-15 fw-bold text-gray550">hjyru456oir</td>
+              </tr>
+              <tr>
+                <td class="fs-15 fw-bold">Supervisor</td>
+                <td class="fs-15 fw-bold text-gray550">Kristin Watson</td>
+              </tr>
+              <tr>
+                <td class="fs-15 fw-bold">Create Date</td>
+                <td class="fs-15 fw-bold text-gray550">Sep 3, 2020 8:59 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mt-3">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto">
+        <h5 class="form-title mb-0 text-black">Team Shark</h5>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="7" [dataLength]="50" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th class="text-nowrap cursor-pointer">
+          Number
+          <i class="d-inline-flex" class="icon-arrow-down"></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          User Name
+          <i class="d-inline-flex" class="icon-arrow-down rotate-180"></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          First Name
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Last Name
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Date Created
+          <i class="d-inline-flex" class="icon-arrow-down"></i>
+        </th>
+        <th class="text-nowrap text-center">
+          Status
+        </th>
+        <th class="text-nowrap text-center">
+          Action
+        </th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr class="cursor-pointer">
+          <td>
+            01
+          </td>
+          <td>
+            annette_black
+          </td>
+          <td>
+            Robert Fox
+          </td>
+          <td>
+            Courtney Henry
+          </td>
+          <td>
+            Sep 3, 2020 8:59 PM
+          </td>
+          <td class="text-center">
+            <div class="form-switch accent-success">
+              <input type="checkbox" class="form-check-input" id="status1" checked>
+              <label for="status1" class="form-check-label"></label>
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="cursor-pointer">
+          <td>
+            01
+          </td>
+          <td>
+            annette_black
+          </td>
+          <td>
+            Robert Fox
+          </td>
+          <td>
+            Courtney Henry
+          </td>
+          <td>
+            Sep 3, 2020 8:59 PM
+          </td>
+          <td class="text-center">
+            <div class="form-switch accent-success">
+              <input type="checkbox" class="form-check-input" id="status1" checked>
+              <label for="status1" class="form-check-label"></label>
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>
+<!--/ Page content box ends -->

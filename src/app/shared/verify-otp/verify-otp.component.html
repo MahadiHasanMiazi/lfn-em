@@ -1,0 +1,37 @@
+<form class="row">
+  <div class="col-12 form-group mb-4 text-center">
+    <ng-otp-input
+      (onInputChange)="otpChanged($event)"
+      [config]="config"
+      #ngOtpInput
+    ></ng-otp-input>
+    <span
+      class="text-danger"
+      *ngIf="otp.length < digits && isSubmitVerify"
+    >
+      Please type your {{ digits }} digit OTP
+    </span>
+  </div>
+
+  <div class="col-12 mb-3 text-center">
+    <button
+      type="button"
+      [disabled]="counter > 0 || isLoading"
+      (click)="reSendOTP()"
+      class="btn btn-link btn-lg text-capitalize"
+    >
+      Resend verification code
+    </button>
+  </div>
+  <div class="col-12 text-center">
+    <button
+      [disabled]="isLoading || counter == 0"
+      type="button"
+      class="btn btn-lg btn-secondary text-white rounded-pill btn-with-loader"
+      (click)="handleClickVerifyOTP()"
+    >
+      {{ isLoading ? "Please Wait..." : "Verify Code" }}
+      <btn-loader *ngIf="isLoading"></btn-loader>
+    </button>
+  </div>
+</form>

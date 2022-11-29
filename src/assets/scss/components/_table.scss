@@ -1,0 +1,148 @@
+/*------------------*
+# Table
+*------------------*/
+.card {
+  flex-wrap: wrap;
+  .card-body {
+    width: 100%;
+    .table-responsive {
+      width: auto;
+      padding-bottom: 12px;
+    }
+  }
+}
+.table {
+  thead {
+    th {
+      font-size: 13px;
+      line-height: 18px;
+      border-bottom: 0.5px solid #eceaea;
+      border-top: 0.5px solid #eceaea;
+      border-bottom-color: #eceaea !important;
+      padding: 15px 0.5rem;
+      i[class*="icon-"] {
+        font-size: 11px;
+        margin-left: 5px;
+      }
+      &:first-child {
+        padding-left: 16px;
+      }
+      &:last-child {
+        padding-right: 16px;
+      }
+    }
+  }
+  tbody {
+    td {
+      font-size: 13px;
+      line-height: 18px;
+      height: 47px;
+      vertical-align: middle;
+      &:first-child {
+        padding-left: 16px;
+      }
+      &:last-child {
+        padding-right: 16px;
+      }
+    }
+  }
+  &.table-hover {
+    & > tbody {
+      & > tr {
+        &:hover {
+          background-color: rgba($gray-200, 0.8) !important;
+          --bs-table-accent-bg: rgba($gray-200, 0.8) !important;
+        }
+      }
+    }
+  }
+  &-caption {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  & > :not(:last-child) > :last-child > * {
+    border-bottom-color: #dee2e6;
+  }
+  &.table {
+    &-stats {
+      margin-bottom: 0px;
+      thead {
+        th {
+          font-size: 13px;
+          padding: 6px 0px;
+          height: 19px;
+        }
+        margin-bottom: 4px;
+        border-bottom: 1px solid $gray-200;
+      }
+      tbody,
+      thead {
+        td {
+          height: 19px;
+          padding: 6px 0px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+.td-inputs {
+  padding: 4px $table-cell-padding-x !important;
+
+  .form-control,
+  .form-select {
+    padding: 3px $input-padding-x;
+    height: auto;
+    max-width: 140px;
+  }
+  .ngb-tp-meridian {
+    .btn {
+      padding: 5.4px $input-padding-x;
+      height: auto;
+    }
+  }
+  .input-group {
+    .form-control,
+    .input-group-text {
+      padding: 3px $input-padding-x;
+      height: auto;
+      max-width: 140px;
+    }
+  }
+  &.text-center > {
+    .form-control,
+    .form-select {
+      display: inline-flex;
+    }
+  }
+}
+
+.custom-div-table {
+  display: flex;
+  width: auto;
+  overflow-x: auto;
+  justify-content: stretch;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 0px;
+  @media print {
+    overflow-x: visible;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+  dt,
+  dd {
+    flex-shrink: 0;
+    div {
+      padding: 8px;
+    }
+    div:first-child {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+  dd {
+    font-size: 13px;
+    margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,164 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Add Company</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form class="row flat-inputs" [formGroup]='addCompanyForm' #addCompanyFormRef="ngForm" (ngSubmit)="onSubmit()">
+      <div class="col-12 col-md-6 form-group mb-3">
+<!--        <label for="">Company Logo</label>-->
+        <app-dropzone (onFileUpload)="uploadLogo($event)"
+                      (onFileRemoved)="uploadedFileRemoved($event)"
+                      [dropZoneLabel]="'Click or drag and drop logo here to upload'"
+        ></app-dropzone>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+<!--        <label for="">Cover Image</label>-->
+        <app-dropzone (onFileUpload)="uploadCoverPhoto($event)"
+                      (onFileRemoved)="uploadedFileRemoved($event)"
+                      [dropZoneLabel]="'Click or drag and drop cover photo here to upload'"
+        ></app-dropzone>
+      </div>
+      <div class="col-12">
+        <h5 class="fs-18 fw-700 text-secondary">
+          Company Information
+        </h5>
+      </div>
+      <input-field
+        label="Company Name"
+        [required]="true"
+        [placeholder]="'Please type your company name'"
+        [parentForm]="addCompanyForm"
+        [fieldName]="'companyName'"
+        [parentFormRef]="addCompanyFormRef"
+        formControlName="companyName"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="compType">Company Type<sup class="text-danger">*</sup></label>
+        <select
+          name=""
+          id="compType"
+          class="form-select"
+          formControlName="companyType"
+        >
+          <option value="">--Select--</option>
+          <option *ngFor="let type of companyType | keyvalue" value="{{type.value}}">{{type.key}}</option>
+        </select>
+        <field-errors
+          name="Company type"
+          [formField]="addCompanyForm.controls.companyType"
+          [formRef]="addCompanyFormRef"
+        ></field-errors>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <address-auto-google
+          formControlName="address"
+          (onAddressChange)="addressSelected($event)">
+        </address-auto-google>
+        <field-errors
+          [name]="'Address'"
+          [formField]="addCompanyForm.controls.address"
+          [formRef]="addCompanyFormRef"
+        ></field-errors>
+      </div>
+      <input-field
+        [label]="'Address2'"
+        [placeholder]="'Enter your address 2'"
+        [fieldName]="'address2'"
+        [parentForm]="addCompanyForm"
+        [parentFormRef]="addCompanyFormRef"
+        formControlName="address2"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="compType">Number of Employees</label>
+        <input type="text" formControlName="numberOfEmployee" class="form-control" placeholder="e.g. 500" numbersOnly>
+      </div>
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="broker">Broker</label>
+        <select
+          name=""
+          id="broker"
+          class="form-select"
+          formControlName="broker"
+        >
+          <option value="">--Select--</option>
+          <option value="global">Global</option>
+          <option value="local">Local</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <h5 class="fs-18 fw-700 text-secondary">Contact Person</h5>
+      </div>
+
+      <input-field
+        [label]="'First name'"
+        [required]="true"
+        [placeholder]="'Enter your first name'"
+        formControlName="firstName"
+        [fieldName]="'firstName'"
+        [parentForm]="addCompanyForm"
+        [parentFormRef]="addCompanyFormRef"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+      <input-field
+        [label]="'Last name'"
+        [required]="true"
+        [placeholder]="'Enter your last name'"
+        formControlName="lastName"
+        [fieldName]="'lastName'"
+        [parentForm]="addCompanyForm"
+        [parentFormRef]="addCompanyFormRef"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <input-field
+        [label]="'Email'"
+        [required]="true"
+        [placeholder]="'Enter your email'"
+        formControlName="email"
+        [fieldName]="'email'"
+        [parentForm]="addCompanyForm"
+        [parentFormRef]="addCompanyFormRef"
+        class="col-12 col-md-6 form-group mb-3"
+      ></input-field>
+
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="contactPersonNumber">Contact Person Number <sup class="text-danger">*</sup></label>
+        <intl-input-phone
+          [SelectedCountryISOCode]="intlPhoneConfig.SelectedCountryISOCode | async"
+          [NumberTextValue]="intlPhoneConfig.NumberModel | async"
+          (OnNumberChange)="intlPhoneConfig.onNumberChage($event)"
+          (OnIsRequiredChange)="intlPhoneConfig.requiredFlagChange($event)"
+          [ConfigurationOption]="intlPhoneConfig.configOption"
+          formControlName="contactPersonNumber"
+          id="contactPersonNumber"
+        >
+        </intl-input-phone>
+        <field-errors
+          name="Contact person number"
+          [formField]="addCompanyForm.controls.contactPersonNumber"
+          [formRef]="addCompanyFormRef"
+        ></field-errors>
+      </div>
+
+      <div class="clearfix mb-3"></div>
+      <div class="col-12 col-md-6">
+        <button
+          [disabled]="isLoading"
+          class="btn btn-secondary text-white text-capitalize w-100 btn-with-loader">
+          Save
+          <btn-loader *ngIf="isLoading"></btn-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

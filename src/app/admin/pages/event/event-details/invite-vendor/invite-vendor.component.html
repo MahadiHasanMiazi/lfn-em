@@ -1,0 +1,164 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Invite Vendor</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<div class="modal-body">
+  <div class="bg-primary-light mb-4">
+    <div class="row">
+      <div class="col-12 col-lg-5 ps-40 py-3">
+        <table class="table table-borderless table-sm table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold">Event Name</td>
+              <td>Health & helfare Event</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Date</td>
+              <td>mm/dd/yyyy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 col-lg-7 pe-40 py-3">
+        <table class="table table-borderless table-sm table-stats">
+          <tbody>
+            <tr>
+              <td class="fw-bold">Time</td>
+              <td>hh:mm</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Location</td>
+              <td>1717 Main Street, Suite STE 5630, Dallas, TX 75201, US</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row flat-inputs mb-22">
+    <div class="col-12 col-lg-6 form-group">
+      <label for="category">Select Vendor Category</label>
+      <select class="form-select">
+        <option value="dental">Dental</option>
+        <option value="yoga">Yoga</option>
+        <option value="nutritionist">Nutritionists</option>
+      </select>
+    </div>
+    <div class="col-12 col-lg-6 form-group">
+      <label for="category">Select Radius</label>
+      <select class="form-select">
+        <option value="dental">10 miles</option>
+        <option value="yoga">20 miles</option>
+        <option value="nutritionist">30 miles</option>
+      </select>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-1">
+        <div class="col-auto mb-2">
+          <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+        </div>
+        <div class="col-auto mb-2 ms-xl-auto">
+          <select class="form-select">
+            <option value="" selected>Service</option>
+            <option value="dentistry">Dentistry</option>
+            <option value="orthodontics">Orthodontics</option>
+          </select>
+        </div>
+        <div class="col-auto mb-2">
+          <select class="form-select">
+            <option value="" selected>Status</option>
+            <option value="going">Going</option>
+            <option value="invited">Invited</option>
+          </select>
+        </div>
+      </div>
+      <div class="mx-n3 table-responsive pb-0">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th style="width: 226px;">Service</th>
+              <th style="width: 142px;">Contact</th>
+              <th class="text-center">Featured</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="border-top-0">
+            <tr class="cursor-pointer" (click)="showDetails = !showDetails">
+              <td style="width: 270px;">
+                <div class="d-flex">
+                  <div class="fw-bold me-2">
+                    Jefferson Dental
+                  </div>
+                  <img src="assets/images/premium.svg" alt="mint" class="me-2" *ngIf="showDetails">
+                  <img src="assets/images/mint.png" alt="" *ngIf="showDetails">
+                </div>
+                <div *ngIf="showDetails">
+                  <div class="fw-bold mb-2">
+                    About the company
+                  </div>
+                  <div>
+                    At MINT dentistry, our skilled dental professionals offer innovative preventive and general dental care for healthy, beautiful
+                    smiles. Patients of every age can receive comprehensive dental treatments in order to detect and prevent further issues before
+                    they develop.
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <i class="icon-double-arrow-up rotate-90 d-inline-flex me-1"></i>
+                    Dentristry
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <i class="icon-double-arrow-up rotate-90 d-inline-flex me-1"></i>
+                    Nutritionists
+                  </div>
+                  <div class="col-12 col-md-6 mt-2" *ngIf="showDetails">
+                    <i class="icon-double-arrow-up rotate-90 d-inline-flex me-1"></i>
+                    Orthodontics
+                  </div>
+                  <div class="col-12 col-md-6 mt-2" *ngIf="showDetails">
+                    <i class="icon-double-arrow-up rotate-90 d-inline-flex me-1"></i>
+                    Oral Surgery
+                  </div>
+                  <div class="col-12 col-md-6 mt-2" *ngIf="showDetails">
+                    <i class="icon-double-arrow-up rotate-90 d-inline-flex me-1"></i>
+                    Acupuncture
+                  </div>
+                  <div class="col-12 col-md-6 mt-2" *ngIf="showDetails">
+                    <i class="icon-double-arrow-up rotate-90 d-inline-flex me-1"></i>
+                    Massage
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div *ngIf="showDetails">
+                  The Colony
+                  2851 Plano Parkway
+                  Suite 220
+                  The Colony, TX 75056
+                </div>
+                <div>
+                  (603) 555-0123
+                </div>
+              </td>
+              <td class="text-center">
+                <i class="icon-star fs-18 text-secondary align-middle"></i>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-outline-success fw-bold" [ngClass]="{'d-none': !showDetails}">Invite</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

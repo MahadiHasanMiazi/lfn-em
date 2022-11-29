@@ -1,0 +1,238 @@
+/*------------------*
+# Buttons
+*------------------*/
+
+.btn {
+  height: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  &:not(.btn-link) {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  &-link {
+    text-decoration: underline;
+  }
+  &-light {
+    border-color: $c8c8;
+    &:hover,
+    &:focus {
+      border-color: $c8c8;
+    }
+  }
+  &-icon-only {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    i[class*="icon-"] {
+      font-size: 15px;
+    }
+  }
+  &-no-style {
+    padding: 0px;
+    box-shadow: none !important;
+    background-color: transparent;
+    border: 0px;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      box-shadow: none !important;
+    }
+  }
+  &-lg {
+    font-size: 14px;
+    padding: 12px 37px;
+    text-transform: uppercase;
+  }
+  &-sm {
+    height: 30px;
+  }
+  &-xs {
+    height: 20px;
+  }
+  &.btn {
+    &-with {
+      &-icon {
+        i[class*="icon-"] {
+          font-size: 15px;
+        }
+      }
+      &-loader {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+  }
+  btn-loader{
+    width: 22px;
+  }
+  .btn {
+    &-loader {
+      margin-left: 8px;
+      width: 22px;
+    }
+    &-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: -11px;
+      i {
+        font-size: 20px !important;
+      }
+    }
+  }
+  &-outline {
+    &-primary{
+      .btn-loader{
+        svg{
+          circle{
+            stroke: $primary;
+            transition: color 0.3s;
+            
+          }
+        }
+      }
+      &:hover{
+        color: white;
+        .btn-loader{
+          svg{
+            circle{
+              stroke: #FFFFFF;
+              transition: color 0.3s;
+              
+            }
+          }
+        }
+      }
+      &:focus{
+        background-color: $primary;
+        border-color: $primary;
+        color: white;
+        .btn-loader{
+          svg{
+            circle{
+              stroke: #FFFFFF;
+              transition: color 0.3s;
+              
+            }
+          }
+        }
+      }
+      &:active{
+        color: white;
+        .btn-loader{
+          svg{
+            circle{
+              stroke: #FFFFFF;
+              transition: color 0.3s;
+              
+            }
+          }
+        }
+      }
+      
+    }
+    &-secondary {
+      &:hover {
+        color: $white;
+      }
+    }
+    &-success {
+      &:hover {
+        color: $white;
+        .text-secondary {
+          color: $white !important;
+        }
+      }
+    }
+  }
+}
+.mobile-add-patient-btn {
+  background-color: $secondary;
+  color: $white;
+  border: 0px solid transparent;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 100px;
+  font-size: 24px;
+  position: fixed;
+  right: 26px;
+  bottom: 112px;
+  z-index: 1;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+.makeApptCTA {
+  animation: blink-text 1s infinite;
+}
+.exposure-btn {
+  &.btn-outline-info {
+    // animation: blink-primary 1s infinite;
+    .btn-circle-info {
+      background-color: $info;
+      border: 1px solid $info;
+      color: white;
+    }
+    .btn-circle-secondary {
+      background-color: $secondary;
+      border: 1px solid $secondary;
+      color: white;
+      animation: blink-alt-secondary 1s infinite;
+    }
+  }
+}
+@mixin blink($name, $color) {
+  @keyframes blink-#{$name} {
+    0% {
+      background-color: transparent;
+      color: $color;
+    }
+    50% {
+      background-color: $color;
+      color: white;
+    }
+    100% {
+      background-color: transparent;
+      color: $color;
+    }
+  }
+}
+@mixin blink-alt($name, $color, $alt-bg) {
+  @keyframes blink-alt-#{$name} {
+    0% {
+      background-color: $color;
+      color: white;
+    }
+    50% {
+      background-color: $alt-bg;
+      color: $color;
+    }
+    100% {
+      background-color: $color;
+      color: white;
+    }
+  }
+}
+@keyframes blink-text {
+  0% {
+    color: white;
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: white;
+  }
+}
+@include blink(primary, $primary);
+@include blink-alt(secondary, $secondary, $info-light);
+@include blink-alt(info, $info, $info-light);

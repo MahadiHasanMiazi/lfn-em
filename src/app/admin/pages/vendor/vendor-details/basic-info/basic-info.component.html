@@ -1,0 +1,226 @@
+<div class="row">
+  <div class="col-auto">
+    <div class="circle-80 bg-primary-light border border-primary">
+      <i class="icon-text-file text-primary fs-30"></i>
+    </div>
+  </div>
+  <div class="col">
+    <div class="section-title-3 mb-30">
+      <div>
+        <h2>Business Contact</h2>
+      </div>
+      <a [routerLink]="[]" class="ms-auto" *ngIf="!editContact" (click)="editContact = true">
+        <i class="icon-edit fs-22"></i>
+      </a>
+    </div>
+    <form>
+      <dl class="row contact-info-dl flat-inputs">
+        <dt class="col-sm-5 col-md-3 col-lg-3 mb-2">
+          Phone Number
+        </dt>
+        <dd class="col-sm-7 col-md-7 col-lg-7 mb-2">
+          <ngx-shimmer-loading hight="17px" width="120px" *ngIf="companyDetails">
+          </ngx-shimmer-loading>
+          <span>
+            (603) 555-0123
+          </span>
+        </dd>
+        <div class="clearfix"></div>
+        <dt class="col-sm-5 col-md-3 col-lg-3 mb-2">
+          Contact Person Name
+        </dt>
+        <dd class="col-sm-7 col-md-7 col-lg-8 col-xl-6 mb-2">
+          <ngx-shimmer-loading hight="17px" width="150px" *ngIf="companyDetails">
+          </ngx-shimmer-loading>
+          <span [ngClass]="{'d-none': editContact}">
+            Charles Ortega
+          </span>
+          <div class="row" [ngClass]="{'d-none': !editContact}">
+            <div class="col-12 col-lg-6 mb-2">
+              <input type="text" maxlength="50" class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-12 col-lg-6 mb-2">
+              <input type="text" maxlength="50" class="form-control" placeholder="Last Name">
+            </div>
+          </div>
+        </dd>
+        <div class="clearfix"></div>
+        <dt class="col-sm-5 col-md-3 col-lg-3 mb-2">
+          Organization Name
+        </dt>
+        <dd class="col-sm-7 col-md-7 col-lg-7 mb-2">
+          <ngx-shimmer-loading hight="17px" width="110px" *ngIf="companyDetails">
+          </ngx-shimmer-loading>
+          <span>
+            Google
+          </span>
+        </dd>
+        <div class="clearfix"></div>
+        <dt class="col-sm-5 col-md-3 col-lg-3 mb-2">
+          Member Since
+        </dt>
+        <dd class="col-sm-7 col-md-7 col-lg-8 col-xl-6 mb-2">
+          <div class="row">
+            <div class="col-lg-6">
+              <ngx-shimmer-loading hight="17px" width="120px" *ngIf="companyDetails">
+              </ngx-shimmer-loading>
+              <span>
+                June 6, 2016
+              </span>
+            </div>
+          </div>
+        </dd>
+        <div class="clearFix"></div>
+
+        <div class="offset-sm-5 offset-md-3 offset-lg-2 col-md-6 col-lg-5 col-xl-4" *ngIf="editContact">
+          <button class="btn btn-secondary text-white rounded-pill w-100 btn-with-loader" [disabled]="isLoading" (click)="onSubmit();">
+            Update
+            <btn-loader *ngIf="isLoading"></btn-loader>
+          </button>
+        </div>
+      </dl>
+    </form>
+  </div>
+</div>
+<div class="row mt-35">
+  <div class="col-auto">
+    <div class="circle-80 bg-primary-light border border-primary">
+      <i class="icon-layers text-primary fs-30"></i>
+    </div>
+  </div>
+  <div class="col">
+    <div class="section-title-3 mb-30">
+      <div>
+        <h2>Email address</h2>
+        <p>
+          The email address to which all the notificaton will be sent
+        </p>
+      </div>
+      <a [routerLink]="[]" class="ms-auto link-primary" (click)="openManageSubscription()">
+        Manage Subscriptions
+      </a>
+    </div>
+    <div class="row">
+      <div class="table-responsive w-100">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>Vendor Benefit Receives</th>
+              <th class="text-center bg-success-light">Standard</th>
+              <th class="text-center bg-info-light">Premium</th>
+              <th class="text-center bg-secondary-light">Elite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="">Personal Information of employee booth visits</td>
+              <td class="text-center bg-success-light">
+                <i class="icon-tik text-black fs-22"></i>
+              </td>
+              <td class="text-center bg-info-light">
+                <i class="icon-tik text-black fs-22"></i>
+              </td>
+              <td class="text-center bg-secondary-light">
+                <i class="icon-tik text-black fs-22"></i>
+              </td>
+            </tr>
+            <tr>
+              <td class="">Personal Information for all registered attendees</td>
+              <td class="text-center bg-success-light">
+                <i class="icon-close text-danger fs-20"></i>
+              </td>
+              <td class="text-center bg-info-light">
+                <i class="icon-tik text-primary fs-22"></i>
+              </td>
+              <td class="text-center bg-secondary-light">
+                <i class="icon-tik text-black fs-22"></i>
+              </td>
+            </tr>
+            <tr>
+              <td class="">Personal Vital Information </td>
+              <td class="text-center bg-success-light">
+                <i class="icon-close text-danger fs-20"></i>
+              </td>
+              <td class="text-center bg-info-light">
+                <i class="icon-tik text-primary fs-22"></i>
+              </td>
+              <td class="text-center bg-secondary-light">
+                <i class="icon-tik text-black fs-22"></i>
+              </td>
+            </tr>
+            <tr>
+              <td class="">LFN Market Place Approved Vendor (Open to public marketplace)</td>
+              <td class="text-center bg-success-light">
+                <i class="icon-close text-danger fs-20"></i>
+              </td>
+              <td class="text-center bg-info-light">
+                <i class="icon-close text-danger fs-20"></i>
+              </td>
+              <td class="text-center bg-secondary-light">
+                <i class="icon-tik text-primary fs-22"></i>
+              </td>
+            </tr>
+            <tr>
+              <td class="">Analytics - List of vendors/product employees is inquiring/buying from</td>
+              <td class="text-center bg-success-light">
+                <i class="icon-close text-danger fs-20"></i>
+              </td>
+              <td class="text-center bg-info-light">
+                <i class="icon-close text-danger fs-20"></i>
+              </td>
+              <td class="text-center bg-secondary-light">
+                <i class="icon-tik text-primary fs-22"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-35">
+  <div class="col-auto">
+    <div class="circle-80 bg-primary-light border border-primary">
+      <i class="icon-envelope text-primary fs-30"></i>
+    </div>
+  </div>
+  <div class="col">
+    <div class="section-title-3 mb-30">
+      <div>
+        <h2>Email address</h2>
+        <p>
+          The email address to which all the notificaton will be sent
+        </p>
+      </div>
+      <a [routerLink]="[]" class="ms-auto">
+        <i class="icon-add fs-22"></i>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col">
+        <dl class="row contact-info-dl">
+          <dt class="col-sm-5 col-md-3 col-lg-2 mb-2">
+            Primary Email
+          </dt>
+          <dd class="col-md-6 col-lg-7 col-xl-8 mb-2">
+            <ngx-shimmer-loading hight="17px" width="120px" *ngIf="companyDetails">
+            </ngx-shimmer-loading>
+            <a href="mailTo:xyz@gmail.com" class="link-primary">xyz@gmail.com</a>
+          </dd>
+          <div class="clearFix"></div>
+          <dt class="col-sm-5 col-md-3 col-lg-2 mb-2">
+            Other
+          </dt>
+          <dd class="col-md-6 col-lg-7 col-xl-8 mb-2">
+            <div class="d-flex flex-column">
+              <a href="mailto:xyz@gmail.com" class="link-primary mb-3">xyz@yahoo.com</a>
+              <a href="mailto:xyz@gmail.com" class="link-primary mb-3">xyz@hotmail.com</a>
+            </div>
+          </dd>
+        </dl>
+
+      </div>
+    </div>
+
+  </div>
+</div>

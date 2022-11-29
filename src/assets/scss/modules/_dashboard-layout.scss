@@ -1,0 +1,31 @@
+/*------------------*
+# Dashboard Layout
+*------------------*/
+.main {
+  &-wrapper {
+    display: flex;
+  }
+}
+.body {
+  &-wrapper {
+    flex-grow: 1;
+    margin-left: auto;
+    max-width: calc(100% - 256px);
+    transition: all 0.3s;
+    &.sidebarCollapsed {
+      max-width: calc(100% - 68px);
+    }
+    @include media-breakpoint-down(lg) {
+      max-width: 100%;
+      &.sidebarCollapsed {
+        max-width: calc(100% - 68px);
+      }
+    }
+  }
+}
+.content-wrapper {
+  width: 100%;
+  padding: 15px 20px 15px 20px;
+  height: calc(100vh - 61px - 67px);
+  overflow-y: auto;
+}

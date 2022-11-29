@@ -1,0 +1,64 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Add Contractor</h4>
+    <a
+      [routerLink]="[]"
+      class="btn-link modal-close"
+      aria-label="Close"
+      (click)="_modal.close()"
+    >
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form
+      class="row flat-inputs"
+      [formGroup]='addContractorForm'
+      (ngSubmit)="addContractor()"
+      #addContractorFormRef="ngForm"
+    >
+      <div class="col-12 col-md-6 form-group mb-3">
+        <input-field
+          label="Email"
+          [required]="true"
+          [parentForm]="addContractorForm"
+          [parentFormRef]="addContractorFormRef"
+          fieldName="email"
+          formControlName="email"
+          placeholder="Please type your email address"
+        ></input-field>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="userRole">Role <span class="text-danger">*</span></label>
+        <select
+          name="userRole"
+          id="userRole"
+          class="form-select"
+          formControlName="userRole"
+        >
+          <option value="contractor">Contractor</option>
+
+        </select>
+        <div
+          class="text-danger"
+          *ngIf="addContractorForm.controls['userRole'].errors?.required && addContractorFormRef.submitted"
+        >
+          User Role is required
+        </div>
+      </div>
+      <div class="clearfix mb-4"></div>
+      <div class="col-12 col-md-6">
+        <button
+          [disabled]="isLoading"
+          type="submit"
+          class="btn btn-secondary text-white text-capitalize w-100 btn-with-loader"
+        >
+          Add New Contractor
+          <btn-loader *ngIf="isLoading"></btn-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

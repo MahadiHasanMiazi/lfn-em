@@ -1,0 +1,25 @@
+/*------------------*
+# File Input Field
+*------------------*/
+/** File Field **/
+.custom-file-input {
+  label.btn {
+    span {
+      min-width: 140px;
+      text-align: left;
+      margin-right: auto;
+    }
+    color: $c6969;
+    justify-content: flex-start;
+  }
+  input[type="file"] {
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+}

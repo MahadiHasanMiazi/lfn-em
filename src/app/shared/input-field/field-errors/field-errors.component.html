@@ -1,0 +1,10 @@
+<div *ngIf="formField?.errors?.required && formRef?.submitted">
+  <div class="text-danger">
+    {{name}} cannot be empty.
+  </div>
+</div>
+<div *ngIf="formField?.errors?.email && formRef?.submitted">
+  <div class="text-danger">
+    {{name}} is not a valid email.
+  </div>
+</div>

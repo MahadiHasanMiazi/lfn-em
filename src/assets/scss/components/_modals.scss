@@ -1,0 +1,181 @@
+/*------------------*
+# Modals
+*------------------*/
+
+.modal {
+  &-title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    color: $table-color;
+  }
+  &-close {
+    color: $gray-550;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    &:focus-visible {
+      outline: 0px;
+    }
+  }
+  &-lfnLg {
+    left: unset;
+    right: -100%;
+    .modal-dialog {
+      margin: 0px;
+      position: absolute;
+      width: 90%;
+      max-width: 90%;
+      display: flex;
+      justify-content: stretch;
+      min-height: 100%;
+      top: -1px;
+      right: 0;
+      &.modal-xl {
+        @include media-breakpoint-up(xl) {
+          max-width: 900px;
+        }
+        // @include media-breakpoint-up(xxl) {
+        //   max-width: 900px;
+        // }
+      }
+      @media all and (max-width: 768px) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    &.fade {
+      right: -100%;
+      transition: 0.4s ease-out;
+      .modal-dialog {
+        right: 0;
+        transition: position 0.4s, opacity 0s 0.4s;
+        transform: translate(0, 0);
+      }
+      &.show {
+        right: 0;
+        transition: 0.5s ease-in;
+      }
+    }
+    .modal {
+      &-content {
+        border-radius: 0px;
+      }
+      &-header,
+      &-body {
+        padding: 16px 50px;
+        @include media-breakpoint-down(md) {
+          padding: 12px 20px;
+        }
+      }
+    }
+    &.modal-lfnAptSettings {
+      .modal {
+        &-dialog {
+          &.modal-xl {
+            @include media-breakpoint-up(xl) {
+              max-width: 1130px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-backdrop {
+    left: unset;
+    right: 0;
+  }
+  &-lightbox {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    .modal {
+      &-content {
+        background-color: transparent;
+        border: 0px solid;
+      }
+      &-header {
+        border-bottom: 0px solid transparent;
+        .modal-title {
+          color: white;
+        }
+        .modal-close {
+          color: white;
+          &:hover {
+            color: #f1f1f1;
+          }
+        }
+      }
+    }
+  }
+  &.popupGuide {
+    .modal-content {
+      border: 0px;
+      border-radius: $border-radius;
+      background-color: transparent;
+    }
+    @include media-breakpoint-up(xl) {
+      .modal-xl {
+        max-width: 1015px;
+      }
+    }
+  }
+  &.testScheduleGuide {
+    .modal-content {
+      border: 0px;
+      border-radius: $border-radius;
+    }
+    @include media-breakpoint-up(xl) {
+      .modal-xl {
+        max-width: 1140px;
+      }
+    }
+    @include media-breakpoint-up(xxl) {
+      .modal-xl {
+        max-width: 1340px;
+      }
+    }
+  }
+  &-full{
+    .modal-xl{
+      max-width: 100%;
+      @include media-breakpoint-up(lg){
+        margin: 20px;
+      }
+    }
+  }
+}
+
+.confirmation-backdrop {
+  z-index: z("confrm-bcdrop") !important;
+}
+
+// .modal {
+//   left: unset;
+//   right: 0;
+//   &-lfnLg {
+//     .modal-dialog {
+//       margin: 0px;
+//       position: absolute;
+//       right: 0px;
+//       transition: transform 0.4s;
+//       transform: translate(100%, 0px);
+//     }
+//   }
+//   &-backdrop {
+//     left: unset;
+//     right: 0;
+//   }
+//   &.fade {
+//     .modal-dialog {
+//       transition: transform 0.4s;
+//       transform: translate(100%, 0px) !important;
+//     }
+//     &.show {
+//       .modal-dialog {
+//         transform: translate(0%, 0px) !important;
+//       }
+//     }
+//   }
+// }

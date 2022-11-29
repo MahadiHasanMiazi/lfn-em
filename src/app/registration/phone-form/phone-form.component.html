@@ -1,0 +1,26 @@
+<registration-form-wrapper [stepNo]="3">
+  <ng-container form-heading>
+    <h3 class="text-dark text-center mb-3"><b>Create Your Account</b></h3>
+    <p class="mb-80">Enter your valid phone number</p>
+  </ng-container>
+
+  <form [formGroup]="phoneForm" #phoneFormRef="ngForm" class="">
+    <div class="form-group mb-20 login-inputs">
+      <intl-input-phone [SelectedCountryISOCode]="intlPhoneConfig.SelectedCountryISOCode | async"
+        [NumberTextValue]="intlPhoneConfig.NumberModel | async" (OnNumberChange)="intlPhoneConfig.onNumberChage($event)"
+        (OnIsRequiredChange)="intlPhoneConfig.requiredFlagChange($event)" [ConfigurationOption]="intlPhoneConfig.configOption"
+        formControlName="phone"></intl-input-phone>
+
+      <div class="text-danger" *ngIf="phoneFields.phone.errors?.required && phoneFormRef.submitted">
+        The phone number is required for verification.
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-120">
+      <button type="submit" class="btn btn-lg btn-secondary rounded-pill text-white text-capitalize btn-with-loader px-45" (click)="submit()">
+        Continue
+        <btn-loader *ngIf="isLoading"></btn-loader>
+      </button>
+    </div>
+  </form>
+</registration-form-wrapper>

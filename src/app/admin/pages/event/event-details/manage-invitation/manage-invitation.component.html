@@ -1,0 +1,148 @@
+<!-- Page content box starts -->
+<div class="card">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+      <div class="col-auto mb-2 ms-xl-auto">
+        <select class="form-select">
+          <option value="" selected>Department</option>
+          <option value="ux">UX Department</option>
+          <option value="dev">Development</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <select class="form-select">
+          <option value="" selected>Status</option>
+          <option value="invited">Invited</option>
+          <option value="notGoing">Not Going</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <button class="btn btn-with-icon btn-outline-success fw-bold">
+          <i class="icon-arrow-right-o me-2"></i>
+          Send Invite
+        </button>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="11" [dataLength]="100" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="all">
+            <label for="all">All</label>
+          </div>
+        </th>
+        <th>
+          Employee Name
+        </th>
+        <th>
+          Email Address
+        </th>
+        <th>
+          Phone
+        </th>
+        <th>
+          Department
+        </th>
+        <th>
+          Status
+        </th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="1">
+            </div>
+          </td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            theresa@gmail.com
+          </td>
+          <td>
+            (302)555-0107
+          </td>
+          <td>
+            UX Department
+          </td>
+          <td>
+            <div class="text-info fw-bold">Invited</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="1">
+            </div>
+          </td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            theresa@gmail.com
+          </td>
+          <td>
+            (480)555-0103
+          </td>
+          <td>
+            Development
+          </td>
+          <td>
+            <div class="text-danger fw-bold">Not Going</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="1">
+            </div>
+          </td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            theresa@gmail.com
+          </td>
+          <td>
+            (480)555-0120
+          </td>
+          <td>
+            Development
+          </td>
+          <td>
+            <div class="text-success fw-bold">Going</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-check without-label">
+              <input type="checkbox" class="form-check-input" id="1">
+            </div>
+          </td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            theresa@gmail.com
+          </td>
+          <td>
+            (480)555-0120
+          </td>
+          <td>
+            Development
+          </td>
+          <td>
+            <div class="text-primary fw-bold">Invited(seen)</div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>
+<!-- Page content box ends -->

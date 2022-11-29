@@ -1,0 +1,24 @@
+/*------------------*
+# Popovers
+*------------------*/
+.popover {
+  &.bs-popover {
+    &-top {
+      margin-bottom: 10px;
+    }
+  }
+}
+.arrow {
+  @extend .popover-arrow;
+}
+.table-dataPop {
+  .popover {
+    &-header {
+      background-color: $white;
+      font-weight: 700;
+    }
+    &-body {
+      padding: 10px 20px;
+    }
+  }
+}

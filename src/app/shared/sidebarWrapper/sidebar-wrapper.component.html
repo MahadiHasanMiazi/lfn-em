@@ -1,0 +1,21 @@
+<aside class="sidebar" [ngClass]="{ 'sidebar-collapsed': sidebarCollapse }">
+  <div class="sidebar-header">
+    <img src="assets/images/lfn-logo-1.svg" alt="" />
+    <h2>LFN</h2>
+    <a [routerLink]="[]" class="sidebar-toggler" (click)="sidebarCollapsed(!sidebarCollapse)">
+      <i class="icon-bars"></i>
+    </a>
+  </div>
+  <div class="sidebar-nav">
+    <ul class="list-unstyled">
+      <ng-content></ng-content>
+    </ul>
+    <ul class="list-unstyled mt-auto sidebar-expander">
+      <li>
+        <a routerLink="./" (click)="sidebarCollapsed(false)">
+          <i class="icon-switch text-primary"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>

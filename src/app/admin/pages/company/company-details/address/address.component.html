@@ -1,0 +1,30 @@
+<form class="row flat-inputs">
+  <div class="col-12 mb-20">
+    <address-search-map (markedLocation)="addressFromSearch($event)"></address-search-map>
+  </div>
+  <div class="col-12 col-lg-6 form-group mb-20">
+    <label for="compName">Company Name</label>
+    <input type="text" id="compName" class="form-control" placeholder="ex: Yoga Club">
+  </div>
+  <div class="clearFix"></div>
+  <div class="col-12 col-lg-6 form-group mb-20">
+    <label for="adrs1">Address 1</label>
+    <input type="text" id="adrs1" class="form-control" name="address1" [(ngModel)]="address1"
+      placeholder="ex: 3517 W. Gray St. Utica, Pennsylvania 57867">
+  </div>
+  <div class="col-12 col-lg-6 form-group mb-20">
+    <label for="adrs1">Address 2</label>
+    <input type="text" id="adrs1" class="form-control" placeholder="ex: 6391 Elgin St. Celina, Delaware 10299 ">
+  </div>
+  <div class="col-12 col-lg-6 form-group mb-20">
+    <label for="pass">Password</label>
+    <input type="text" id="pass" class="form-control" placeholder="Type your password">
+  </div>
+  <div class="clearFix"></div>
+  <div class="col-12 col-lg-6">
+    <button class="btn btn-lg btn-secondary w-100 text-white fw-bold btn-with-loader">
+      Submit
+      <btn-loader *ngIf="isLoading"></btn-loader>
+    </button>
+  </div>
+</form>

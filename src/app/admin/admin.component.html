@@ -1,0 +1,13 @@
+<div class="main-wrapper">
+  <admin-sidebar></admin-sidebar>
+
+  <div class="body-wrapper" [ngClass]="{'sidebarCollapsed': sidebarCollapse}">
+    <admin-header></admin-header>
+
+    <div class="content-wrapper custom-scrollbar">
+      <router-outlet></router-outlet>
+    </div>
+    <alert></alert>
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<sidebar-wrapper>
+  <li>
+    <a routerLink="./" routerLinkActive="active" placement="right" ngbTooltip="Patient List" tooltipClass="ms-2 text-nowrap">
+      <i class="icon-user"></i>
+      <span>Patient List</span>
+    </a>
+  </li>
+  <li>
+    <a routerLink="./" routerLinkActive="active" placement="right" ngbTooltip="Parent List" tooltipClass="ms-2 text-nowrap">
+      <i class="icon-people"></i>
+      <span>Parent List</span>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="" class="hasDropdown" [ngClass]="{'active': reportsActive}" (click)="showReportSubmenu = !showReportSubmenu">
+      <i class="icon-text-file"></i>
+      <span>Reports</span>
+      <i class="icon-angle-right" [ngClass]="
+          showReportSubmenu ? 'icon-angle-right' : 'icon-angle-down'
+        "></i>
+    </a>
+    <ul class="list-unstyled" [ngClass]="{ expanded: showReportSubmenu }">
+      <li>
+        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Upload Test Results
+        </a>
+      </li>
+      <li>
+        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Detail Test Report
+        </a>
+      </li>
+      <li>
+        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Summary Test Report
+        </a>
+      </li>
+    </ul>
+  </li>
+</sidebar-wrapper>

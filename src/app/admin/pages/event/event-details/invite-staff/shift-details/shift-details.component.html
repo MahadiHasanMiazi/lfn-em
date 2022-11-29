@@ -1,0 +1,63 @@
+<div class="section-title-2 border-c8c8 mb-4">
+  <h2 class="border-c8c8">Shift details</h2>
+  <h4 class="ms-auto text-gray550 mb-0">{{staffId}}</h4>
+  <a [routerLink]="[]" class="ms-3 d-inline-flex align-items-center" (click)="shiftDetailsClosed()">
+    <i class="icon-close-o text-danger"></i>
+  </a>
+</div>
+<div class="row">
+  <div class="col-auto d-flex align-items-center">
+    <i class="icon-calendar mb-2px fs-18 me-2 d-inline-flex"></i>
+    <label for="date" class="fw-normal me-2">Date</label>
+    <input type="text" class="form-control w-120 me-2" placeholder="01/17/2022">
+    <a [routerLink]="[]" class="flex-shrink-0">All day</a>
+  </div>
+  <div class="col-auto d-flex align-items-center me-2">
+    <i class="icon-time mb-2px fs-18 me-2 d-inline-flex"></i>
+    <label for="start" class="fw-normal me-2">Start</label>
+    <input type="text" class="form-control w-120 me-2">
+    <label for="end" class="fw-normal me-2">End</label>
+    <input type="text" class="form-control w-120">
+  </div>
+  <div class="col-auto">
+    <div class="fw-bold text-tartiary mt-2">08:00 Hours</div>
+  </div>
+</div>
+<hr class="bg-gray550 my-4">
+<div class="row">
+  <div class="col-12 form-group col-md-6 mb-3">
+    <address-auto-google (onAddressChange)="addressChanged($event)"></address-auto-google>
+  </div>
+  <div class="col-12 form-group col-md-6 mb-3">
+    <label for="suiteApt">Suite/Appt/Location</label>
+    <input type="text" class="form-control" placeholder="13/6, Road:2">
+  </div>
+  <div class="col-12 form-group mb-3">
+    <label>Address</label>
+    <p>Hilton Hawaiian Village Waikiki Beach Resort, Kālia Road,
+    </p>
+    <p>Honolulu, HI, USA</p>
+    <p>13/6/2A, Road: 2</p>
+  </div>
+  <div class="col-12 form-group mb-5">
+    <label for="note">Note</label>
+    <textarea cols="30" rows="3" class="form-control" style="height:70px"></textarea>
+  </div>
+  <div class="col-12 d-flex mb-4">
+    <button class="btn btn-secondary text-white fw-bold me-2">
+      Send
+    </button>
+    <button class="btn btn-outline-gray550 text-primary fw-bold me-2">
+      Save draft
+    </button>
+    <button class="btn btn-danger-light circle-37 btn-icon-only me-2">
+      <i class="icon-close-o text-danger"></i>
+    </button>
+    <button class="btn btn-outline-gray550 text-primary fw-bold me-2">
+      Save as template
+    </button>
+    <button class="btn btn-outline-dark fw-bold">
+      Cancel
+    </button>
+  </div>
+</div>

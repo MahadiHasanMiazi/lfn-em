@@ -1,0 +1,107 @@
+<div class="card">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+      <div class="col-auto mb-2 ms-xl-auto">
+        <select class="form-select">
+          <option value="" selected>Category</option>
+          <option value="nutritionists">Nutritionists</option>
+          <option value="yoga">Yoga</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <select class="form-select">
+          <option value="" selected>Status</option>
+          <option value="invited">Invited</option>
+          <option value="notGoing">Not Going</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <button class="btn btn-icon-only text-success btn-light">
+          <i class="icon-print"></i>
+        </button>
+      </div>
+      <div class="col-auto mb-2">
+        <button class="btn btn-with-icon btn-outline-success fw-bold" (click)="openTaskAssigned()">
+          <i class="icon-add me-2"></i>
+          Task Assigned
+        </button>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="11" [dataLength]="100" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Assigned</th>
+        <th>Description</th>
+        <th>Status</th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr>
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-secondary ">
+            On going
+          </td>
+        </tr>
+        <tr>
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-primary ">
+            Scheduled
+          </td>
+        </tr>
+        <tr>
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-secondary ">
+            On going
+          </td>
+        </tr>
+        <tr>
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-Primary ">
+            Scheduled
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>

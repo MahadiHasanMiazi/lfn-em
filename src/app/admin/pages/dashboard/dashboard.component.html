@@ -1,0 +1,158 @@
+<div class="row g-0 align-items-start overflow-hidden">
+  <div class="col-sm-auto">
+    <div class="db-page-titles">
+      <h1 class="db-page-title text-tartiary mb-1">Dashboard</h1>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-3">
+    <app-event-card [cardInformation]="healthFairCard" ></app-event-card>
+  </div>
+  <div class="col-3">
+    <app-event-card [cardInformation]="testEventCard"></app-event-card>
+  </div>
+  <div class="col-3">
+    <app-event-card [cardInformation]="futureEvent"></app-event-card>
+  </div>
+  <div class="col-3">
+    <app-event-card [cardInformation]="pendingEvent"></app-event-card>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-8">
+    <div class="card border-0 h-52 justify-content-center">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-auto">
+            <div ngbDropdown class="d-inline-block">
+              <a id="taskType" ngbDropdownToggle class="cursor-pointer">
+                <span class="header-dropdown">
+                  <i class="icon-angle-down"></i>
+                </span>
+                <span class="fs-18 fw-700 lh-24 text-tartiary mx-1">All Task</span>
+                <span class="fs-14 fw-700 mx-2 text-c8c8">(13)</span>
+              </a>
+              <div ngbDropdownMenu aria-labelledby="taskType" class="pt-0 cursor-pointer">
+                <span ngbDropdownItem class="card-header h-40">Type task</span>
+                <span ngbDropdownItem>My Day</span>
+                <span ngbDropdownItem>Important</span>
+                <span ngbDropdownItem>Planned</span>
+                <span ngbDropdownItem>Assigned to me</span>
+                <span ngbDropdownItem>All Task list</span>
+                <span ngbDropdownItem>Completed Task</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto ms-xl-auto">
+            <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card border-0 h-52 justify-content-center">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-auto">
+            <span>Ongoing Event</span>
+          </div>
+          <div class="col-auto ms-xl-auto">
+            <span class="cursor-pointer" (click)="isViewMap = !isViewMap">{{isViewMap ? 'List View' : 'Map View'}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-8">
+    <div class="card border-0">
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+          <tr class="cursor-pointer">
+            <td class="text-truncate text-nowrap">
+              <i class="icon-verify text-success"></i>
+              <span class="mx-1">Send reference doc to Gussie</span>
+            </td>
+            <td>
+              #288
+            </td>
+            <td>
+                <span>
+                  <i class="icon-calendar"></i>
+                </span>
+              <span class="mx-1">Today 9am</span>
+            </td>
+            <td>
+              <user-thumb-name [userData]="userData"></user-thumb-name>
+            </td>
+            <td class="text-truncate">
+              897
+            </td>
+          </tr>
+          <tr class="cursor-pointer">
+            <td class="text-truncate text-nowrap">
+              <i class="icon-verify text-success"></i>
+              <span class="mx-1">Send reference doc to Gussie</span>
+            </td>
+            <td>
+              #288
+            </td>
+            <td>
+                <span>
+                  <i class="icon-calendar"></i>
+                </span>
+              <span class="mx-1">Today 9am</span>
+            </td>
+            <td>
+              <user-thumb-name [userData]="userData"></user-thumb-name>
+            </td>
+            <td class="text-truncate">
+              897
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card border-0">
+      <div class="card-body" *ngIf="!isViewMap">
+        <div>
+          <app-search-field></app-search-field>
+        </div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Area</th>
+                <th>Date</th>
+                <th>Days</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Washington</td>
+              <td>mm-dd-yyy</td>
+              <td>02</td>
+            </tr>
+            <tr>
+              <td>Washington</td>
+              <td>mm-dd-yyy</td>
+              <td>02</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-body" *ngIf="isViewMap">
+        <app-multiple-markers-google-map [latLng]="latLong"></app-multiple-markers-google-map>
+      </div>
+    </div>
+  </div>
+</div>

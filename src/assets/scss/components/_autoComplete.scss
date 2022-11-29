@@ -1,0 +1,68 @@
+/*------------------*
+# AutoComplete
+*------------------*/
+.autoComplete-wrapper {
+  position: relative;
+  input.form-control {
+    &:focus {
+      border-radius: $input-border-radius $input-border-radius 0px 0px;
+    }
+  }
+  .autoComplete {
+    list-style: none;
+    margin: 0;
+    border: 1px solid $input-border-color;
+    max-height: 250px;
+    border-top: 0px;
+    padding: 0px;
+    overflow-y: auto;
+    border-radius: 0px 0px $input-border-radius $input-border-radius;
+    li {
+      padding: 8px 10px;
+      font-size: $input-font-size;
+      border-bottom: 1px solid $input-border-color;
+      display: flex;
+      flex-wrap: wrap;
+      cursor: pointer;
+      &:last-of-type {
+        border-bottom: 0px;
+      }
+      &:hover {
+        background: $secondary-light;
+        // .add-from-autoComplete {
+        //   display: inline-flex;
+        // }
+      }
+      &.active {
+        background: $secondary-light;
+      }
+      &.selected {
+        background: $primary-light;
+      }
+    }
+    &.z-over {
+      position: absolute;
+      width: 100%;
+      z-index: 9;
+      background: $white;
+      box-shadow: $input-box-shadow;
+    }
+  }
+  // &.z-over {
+  //   position: absolute;
+  //   top: 60px;
+  //   z-index: 5;
+  //   width: calc(100% - 30px);
+  //   .autoComplete {
+  //     background: var(--white);
+  //   }
+  //   @include media-breakpoint-down(sm) {
+  //     top: 140px;
+  //   }
+  // }
+}
+
+//address autocomplete dropdown
+.pac-container {
+  z-index: z("phone-dropdown");
+}

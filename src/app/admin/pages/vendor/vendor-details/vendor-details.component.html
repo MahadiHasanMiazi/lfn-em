@@ -1,0 +1,62 @@
+<!-- Details page title -->
+<div class="row g-0 align-items-start overflow-hidden mb-4">
+  <div class="col-sm-auto">
+    <div class="db-page-titles mb-2">
+      <h1 class="db-page-title text-tartiary mb-0">Vendor Details</h1>
+      <h4 class="db-page-stat text-gray550 mb-0">
+        90% profile complete Send
+        <a [routerLink]="[]" class="link-info ">email/sms to this account holder</a>
+      </h4>
+    </div>
+    <a routerLink="/admin/vendor/" class="d-flex align-items-center">
+      <i class="icon-arrow-left-o d-inline-flex me-2"></i>
+      Back to vendor List
+    </a>
+  </div>
+</div>
+<!-- Details page title ends -->
+
+<div class="row gx-22">
+  <!-- Details page sidebar -->
+  <div class="col-12 col-md-4 col-xl-3">
+    <inner-sidebar [sidebarTopInfo]="companyData">
+      <ng-container innerSidebarNav>
+        <li>
+          <a routerLink="/admin/vendor/details/basic-info" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="icon-user"></i>
+            <span>Basic Information</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/vendor/details/address" routerLinkActive="active">
+            <i class="icon-box"></i>
+            <span>Address</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/vendor/identification" routerLinkActive="active">
+            <i class="icon-img"></i>
+            <span>Identification</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/vendor/details/events" routerLinkActive="active">
+            <i class="icon-coffee"></i>
+            <span>Events</span>
+          </a>
+        </li>
+      </ng-container>
+    </inner-sidebar>
+  </div>
+  <!-- Details page sidebar ends -->
+
+  <!-- Details page contents -->
+  <div class="col-12 col-md-8 col-xl-9">
+    <div class="card">
+      <div class="card-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <!-- Details page contents ends -->
+</div>

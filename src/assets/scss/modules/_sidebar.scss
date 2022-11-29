@@ -1,0 +1,249 @@
+.sidebar {
+  width: 256px;
+  transition: width 0.3s;
+
+  position: relative;
+  z-index: z("sidebar");
+
+  &-header {
+    width: 100%;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 4px 4px rgba(231, 231, 231, 0.25);
+    img {
+      width: 24px;
+      margin-right: 10px;
+      margin-left: 35px;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 31px;
+      line-height: 42px;
+      color: #626262;
+      margin-bottom: 0px;
+    }
+  }
+  &-toggler {
+    margin-left: auto;
+    margin-right: 14px;
+    font-size: 22px;
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+  &-nav {
+    background-color: $white;
+    padding-top: 24px;
+    min-height: calc(100vh - 61px);
+    position: relative;
+    box-shadow: 0px 5px 4px 4px rgba(231, 231, 231, 0.25);
+    display: flex;
+    flex-direction: column;
+    & > ul {
+      height: 100%;
+      margin-bottom: 0px;
+    }
+    ul {
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 17px 22px 17px 31px;
+          border-right: 4px solid $white;
+          i[class*="icon-"] {
+            font-size: 18px;
+            margin-right: 15px;
+          }
+          span {
+            font-size: 13px;
+            line-height: 18px;
+            color: $c7373;
+            opacity: 1;
+            max-height: 18px;
+            overflow: hidden;
+            transition: opacity 0.3s 0.1s;
+          }
+          &.active {
+            background: $primary-light;
+            border-right: 4px solid $primary;
+            i[class*="icon-"] {
+              color: $primary;
+            }
+          }
+          &:hover{
+            color: $secondary;
+          }
+          &.hasDropdown {
+            i {
+              &.icon-angle-down,
+              &.icon-angle-right {
+                font-size: 16px;
+                margin-left: auto;
+                margin-right: 0px;
+                opacity: 1;
+                max-height: 18px;
+                overflow: hidden;
+                transition: opacity 0.3s 0.1s;
+              }
+            }
+          }
+        }
+        ul {
+          padding-left: 33px;
+          max-height: 0;
+          height: auto;
+          opacity: 0;
+          overflow: hidden;
+          transition: opacity 0.3s;
+          li {
+            a {
+              font-size: 13px;
+              line-height: 18px;
+              color: $c7373;
+              opacity: 1;
+              max-height: 51px;
+              overflow: hidden;
+              transition: opacity 0.3s 0.1s;
+              &.active {
+                background-color: white;
+                color: $primary;
+                border-right: 4px solid $white;
+              }
+            }
+          }
+          &.expanded {
+            max-height: 500px;
+            opacity: 1;
+            transition: opacity 0.3s;
+          }
+        }
+      }
+    }
+  }
+  &-expander {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: opacity 0.3s;
+  }
+  &.sidebar-collapsed {
+    width: 68px;
+    transition: width 0.3s;
+    .sidebar {
+      &-header {
+        h2 {
+          display: none;
+        }
+        img {
+          margin-left: 21px;
+        }
+      }
+      &-toggler {
+        margin-left: 25px;
+        @media all and (max-width: 576px) {
+          width: 0px;
+          height: 0px;
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+      &-nav {
+        ul {
+          li {
+            position: relative;
+            a {
+              padding: 17px 25px 17px 25px;
+              span {
+                font-size: 0;
+                max-height: 0;
+                opacity: 0;
+                transition: opacity 0.3s;
+              }
+              &.hasDropdown {
+                i {
+                  &.icon-angle-down,
+                  &.icon-angle-right {
+                    font-size: 0;
+                    max-height: 0;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                  }
+                }
+              }
+            }
+            ul {
+              height: 0px;
+              li {
+                a {
+                  font-size: 0;
+                  max-height: 0;
+                  opacity: 0;
+                  transition: opacity 0.3s;
+                  padding: 0px;
+                }
+              }
+            }
+          }
+          & > li {
+            &:hover {
+              ul {
+                position: absolute;
+                height: auto;
+                max-height: 500px;
+                left: 100%;
+                top: 0px;
+                padding-left: 0px;
+                background: white;
+                min-width: 200px;
+                box-shadow: 3px 3px 8px -1px rgb(0 0 0 / 20%);
+                opacity: 1;
+                transition: all 0.3s;
+                li {
+                  a {
+                    font-size: 13px;
+                    max-height: 60px;
+                    opacity: 1;
+                    transition: opacity 0.3s;
+                    padding: 17px 25px 17px 25px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &-expander {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        transition: opacity 0.3s;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    &.sidebar-collapsed {
+      position: relative;
+    }
+  }
+}
+
+.covid-db-sidebar {
+  @media all and (max-width: 768px) {
+    .sidebar {
+      &-nav {
+        ul {
+          li {
+            .tooltip {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

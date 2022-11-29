@@ -1,0 +1,39 @@
+<label
+  for="address"
+  *ngIf="!params?.isDashboardMap"
+>
+  {{label}}
+  <span
+    class="text-danger"
+    *ngIf="required"
+  ></span>
+</label>
+<div class="input-group">
+  <input
+    type="text"
+    class="form-control"
+    id="address"
+    ngx-google-places-autocomplete
+    #addressRef="ngx-places"
+    (onAddressChange)="handleAddressChange($event)"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouched($event.target.value)"
+    [disabled]="disabled"
+  >
+  <span class="input-group-text">
+    <i
+      *ngIf="!params?.isDashboardMap"
+      class="icon-target"
+    ></i>
+    <i
+      *ngIf="params?.isDashboardMap"
+      class="icon-search"
+    ></i>
+  </span>
+  <img
+    *ngIf="!params?.isDashboardMap"
+    src="assets/images/pwb-google-maps.svg"
+    alt=""
+    class="powered-by-logo"
+  >
+</div>

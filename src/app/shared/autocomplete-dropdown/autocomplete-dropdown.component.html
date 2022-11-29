@@ -1,0 +1,40 @@
+<div class="autoComplete-wrapper" #acWrapper>
+  <input [(ngModel)]="acDDValue" type="text" name="acDD" class="form-control" placeholder="{{name}}" autocomplete="off" (focus)="inputFocus(true)"
+    (input)="suggestDdl($event.target.value)" (focusout)="inputFocus(false)" (keyup)="showAutoCompleteDD($event,$event.target.value)"
+    (click)="showInitialDd()" #inputField>
+  <ul class="autoComplete z-over" [ngClass]="{'d-none' : !acDDL }">
+    <li *ngIf="isAcInputFocus && inputField.value === ''  && !ddWithInitialData" class="text-gray550 bg-gray-2">Begin typing to
+      search
+      for a {{name}} name
+    </li>
+    <li *ngIf="inputField.value !== '' && autoSuggests.length == 0" class="text-gray550 bg-gray-2">
+      No {{name}} found. Type the {{name}}'s name correctly.
+    </li>
+    <li *ngFor="let item of autoSuggests; let i = index" (keyDown)="onItemKeyDown($event, item);" (click)="chooseItem(item);"
+      [class.selected]="item.isActive" [class.active]="i == arrowkeyLocation">
+      <div class="form-check" *ngIf="multiSelect">
+        <label [for]="item.name" class="form-check-label">
+          <input class="form-check-input" type="checkbox" [id]="item.name" [checked]="item.isChecked">
+          {{item.name}}
+        </label>
+      </div>
+      <ng-container *ngIf="!multiSelect">
+        {{item.name}}
+      </ng-container>
+    </li>
+    <ng-container *ngIf="inputField.value === '' && multiSelect && ddWithInitialData">
+      <li *ngFor="let item of ddList; let i = index" (keyDown)="onItemKeyDown($event, item);" (click)="chooseItem(item);"
+        [class.selected]="item.isActive" [class.active]="i == arrowkeyLocation">
+        <div class="form-check" *ngIf="multiSelect">
+          <label [for]="item.name" class="form-check-label">
+            <input class="form-check-input" type="checkbox" [id]="item.name" [checked]="item.isChecked">
+            {{item.name}}
+          </label>
+        </div>
+        <ng-container *ngIf="!multiSelect">
+          {{item.name}}
+        </ng-container>
+      </li>
+    </ng-container>
+  </ul>
+</div>

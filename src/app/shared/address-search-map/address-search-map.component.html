@@ -1,0 +1,10 @@
+<div class="address-search-map-wrapper">
+  <div class="card">
+    <div class="card-header bg-primary text-white">Autocomplete Search</div>
+    <div class="card-body">
+      <input type="text" class="form-control" id="address" ngx-google-places-autocomplete #addressRef="ngx-places"
+        (onAddressChange)="handleAddressChange($event)">
+    </div>
+  </div>
+  <div #mapContainer id="map"></div>
+</div>

@@ -1,0 +1,38 @@
+<div class="mx-n3 table-responsive pb-0">
+  <table class="table align-middle table-hover">
+    <thead>
+      <tr>
+        <ng-content select="[tableHeader]"></ng-content>
+      </tr>
+    </thead>
+    <ng-container *ngIf="!isDataLoaded">
+      <table-shimmer class="border-top-0" [row]="row" [column]="column"></table-shimmer>
+    </ng-container>
+    <tbody class="border-top-0" *ngIf="dataLength == 0 && isDataLoaded">
+      <tr>
+        <td colspan="column" class="text-center py-5">
+          <no-data></no-data>
+        </td>
+      </tr>
+    </tbody>
+    <tbody class="border-top-0" *ngIf="dataLength > 0 && isDataLoaded">
+      <ng-content select="[tableBody]"></ng-content>
+    </tbody>
+  </table>
+
+  <div class="mx-3 d-flex justify-content-sm-between align-items-center">
+    <caption class="table-caption">
+      Showing
+      <span>{{ dataLength == 0? 0:(currentPage * itemPerPage) - (itemPerPage - 1) }}</span>
+      to
+      <span>{{ dataLength < itemPerPage ? ((currentPage-1) * itemPerPage)+dataLength : currentPage * itemPerPage}}</span>
+
+      of <span>{{totalCount}}</span> Entries
+    </caption>
+
+    <ngb-pagination *ngIf="totalCount" [collectionSize]="totalCount" [(page)]="currentPage" [maxSize]="5" [pageSize]="itemPerPage" [rotate]="true"
+      [boundaryLinks]="true" (pageChange)="currentPageLink($event)" class="d-flex justify-content-end">
+    </ngb-pagination>
+
+  </div>
+</div>

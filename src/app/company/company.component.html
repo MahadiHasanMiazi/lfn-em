@@ -1,0 +1,16 @@
+<div class="main-wrapper">
+  <company-sidebar></company-sidebar>
+
+  <div class="body-wrapper" [ngClass]="{'sidebarCollapsed': sidebarCollapse}">
+    <company-header></company-header>
+
+    <div class="content-wrapper custom-scrollbar">
+
+      <router-outlet></router-outlet>
+      <p>company works!</p>
+      <a routerLink="./">Company anchor</a>
+
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

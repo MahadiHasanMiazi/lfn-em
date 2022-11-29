@@ -1,0 +1,31 @@
+/*------------------*
+# circles
+*------------------*/
+
+// Defining sizes
+$circleSizes: (
+  21: 21px,
+  29: 29px,
+  35: 35px,
+  37: 37px,
+  46: 46px,
+  80: 80px,
+  100: 100px,
+  184: 184px,
+);
+
+// mixin for circle
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: #{$size * 2};
+}
+// creating circle variants
+@each $size, $value in $circleSizes {
+  .circle-#{$size} {
+    @include circle($value);
+  }
+}

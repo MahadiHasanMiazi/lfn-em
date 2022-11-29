@@ -1,0 +1,7 @@
+@import "base/lfnVariables";
+.btn-link {
+  &.active {
+    border: 1px solid $primary;
+    color: $primary !important;
+  }
+}

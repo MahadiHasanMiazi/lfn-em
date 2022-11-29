@@ -1,0 +1,157 @@
+<registration-form-wrapper [stepNo]="5">
+  <ng-container form-heading>
+    <h3 class="text-dark text-center mb-40"><b>Create Your Account</b></h3>
+  </ng-container>
+  <form
+    [formGroup]="userInfoForm"
+    #userFormRef="ngForm"
+    class=""
+  >
+    <div class="form-group mb-20">
+      <div class="login-inputs input-group">
+        <input
+          maxlength="100"
+          type="text"
+          class="form-control"
+          formControlName="FirstName"
+          placeholder="First name"
+        >
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userInfoFormFields.FirstName?.errors?.required && userFormRef.submitted"
+      >
+        First name cannot be empty.
+      </div>
+    </div>
+    <div class="form-group mb-20">
+      <div class="login-inputs input-group">
+        <input
+          maxlength="100"
+          type="text"
+          class="form-control"
+          formControlName="LastName"
+          placeholder="Last name"
+        >
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userInfoFormFields.LastName?.errors?.required && userFormRef.submitted"
+      >
+        Last name cannot be empty.
+      </div>
+    </div>
+    <div class="form-group login-inputs mb-20">
+      <label for="name">Gender <sup class="text-danger">*</sup></label>
+      <div class="form-group">
+        <div class="form-check form-check-inline custom-radio">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="0"
+            formControlName="Gender"
+            id="male"
+          >
+          <label
+            class="form-check-label"
+            for="male"
+          >Male</label>
+        </div>
+        <div class="form-check form-check-inline custom-radio">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="1"
+            formControlName="Gender"
+            id="female"
+          >
+          <label
+            class="form-check-label"
+            for="female"
+          >Female</label>
+        </div>
+        <div class="form-check form-check-inline custom-radio">
+          <input
+            class="form-check-input"
+            type="radio"
+            value="2"
+            formControlName="Gender"
+            id="other"
+          >
+          <label
+            class="form-check-label"
+            for="other"
+          >Other</label>
+        </div>
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userInfoFormFields.Gender?.errors?.required && userFormRef.submitted"
+      >
+        Please select at-least one gender.
+      </div>
+    </div>
+    <div class="form-group mb-20">
+      <div class="login-inputs input-group">
+        <!-- <input type="text" class="form-control" formControlName="Designation" placeholder="Designation"> -->
+        <select
+          name=""
+          id=""
+          class="form-select"
+          formControlName="DesignationIds"
+        >
+          <option value="">--select designation--</option>
+          <option
+            [value]="item.itemId"
+            *ngFor="let item of designations"
+          >{{item.name}}</option>
+        </select>
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userInfoFormFields.Designation?.errors?.required && userFormRef.submitted"
+      >
+        You must mention your designation.
+      </div>
+    </div>
+    <div class="form-group mb-20 login-inputs flat-inputs">
+      <custom-date-picker
+        formControlName="DateOfBirth"
+        class="login-inputs input-group"
+      ></custom-date-picker>
+      <div
+        class="text-danger"
+        *ngIf="userInfoFormFields.DateOfBirth?.errors?.required && userFormRef.submitted"
+      >
+        Date of birth is required.
+      </div>
+    </div>
+    <div class="form-group mb-20">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="termsAndCondition"
+          formControlName="IsAcceptTermsAndCondition"
+          id="termsAndCondition"
+        >
+        <label
+          class="form-check-label"
+          for="termsAndCondition"
+        >
+          I agree to the <a [routerLink]="[]">Terms & Conditions</a> and <a [routerLink]="[]">Privacy Policy</a>
+        </label>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-70">
+      <button
+        type="submit"
+        class="btn btn-lg btn-secondary rounded-pill text-white text-capitalize btn-with-loader px-45"
+        (click)="submit()"
+      >
+        Continue
+        <btn-loader *ngIf="isLoading"></btn-loader>
+      </button>
+    </div>
+  </form>
+</registration-form-wrapper>

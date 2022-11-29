@@ -1,0 +1,133 @@
+<div class="card">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+
+      <div class="col-auto ms-auto mb-2">
+        <button class="btn btn-with-icon btn-outline-success fw-bold" (click)="openNewNote()">
+          <i class="icon-add me-2"></i>
+          New Note
+        </button>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="11" [dataLength]="100" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Creator</th>
+        <th>Note</th>
+        <th class="text-center">Action</th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr class="cursor-pointer">
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+                <!-- <button ngbDropdownItem>Active</button>
+                <button ngbDropdownItem>Locked</button>
+                <button ngbDropdownItem>Pending</button> -->
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="cursor-pointer">
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+                <!-- <button ngbDropdownItem>Active</button>
+                <button ngbDropdownItem>Locked</button>
+                <button ngbDropdownItem>Pending</button> -->
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="cursor-pointer">
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+                <!-- <button ngbDropdownItem>Active</button>
+                <button ngbDropdownItem>Locked</button>
+                <button ngbDropdownItem>Pending</button> -->
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="cursor-pointer">
+          <td>mm/dd/yyyy</td>
+          <td>hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation
+            veniam
+            consequat sunt nostrud amet.
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+                <!-- <button ngbDropdownItem>Active</button>
+                <button ngbDropdownItem>Locked</button>
+                <button ngbDropdownItem>Pending</button> -->
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>

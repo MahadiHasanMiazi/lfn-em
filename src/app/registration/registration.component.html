@@ -1,0 +1,55 @@
+<div class="row g-0 vh-100">
+  <div class="col lfn-admin-login-bg">
+    <a href="https://www.livingfitnation.com/">
+      <img
+        src="assets/images/lfn-logo-1.svg"
+        alt="LFN"
+        class="lfn-logo me-4"
+      >
+    </a>
+    <h2 class="text-white logo-text">
+      Did you find the <br> solution?
+    </h2>
+  </div>
+  <div class="col-lg-8 col-xl-5 col-xxl-4 login-form-column position-relative">
+    <ng-container [ngSwitch]="step">
+      <email-form
+        (continue)="onEmailFormSubmit($event)"
+        *ngSwitchCase="1"
+      ></email-form>
+      <email-verification-form
+        [email]="email"
+        (continue)="onEmailVerifySubmit($event)"
+        *ngSwitchCase="2"
+      ></email-verification-form>
+      <phone-form
+        (continue)="onPhoneFormSubmit($event)"
+        *ngSwitchCase="3"
+      ></phone-form>
+      <phone-verification-form
+        [phone]="phone"
+        (continue)="onPhoneVerifySubmit($event)"
+        *ngSwitchCase="4"
+      ></phone-verification-form>
+      <user-information-form
+        [email]="email"
+        [phone]="phone"
+        (continue)="onUserInfoSubmit($event)"
+        *ngSwitchCase="5"
+      ></user-information-form>
+      <address-form
+        [userInfo]="userInfo"
+        (continue)="onAddressSubmit($event)"
+        *ngSwitchCase="6"
+      ></address-form>
+      <password-form
+        [restFormData]="completeEmployeeAccountInfo"
+        *ngSwitchCase="7"
+      >
+
+      </password-form>
+    </ng-container>
+
+    <alert></alert>
+  </div>
+</div>

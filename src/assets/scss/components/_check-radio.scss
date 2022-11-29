@@ -1,0 +1,157 @@
+/*------------------*
+# Checkbox and Radio
+*------------------*/
+/** Checkbox **/
+.form-check {
+  &-input[type="checkbox"] {
+    border-radius: 1px;
+    // border: 1px solid #3a494e;
+    cursor: pointer;
+  }
+  &-input[type="radio"] {
+    &:checked {
+      background-color: white;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23429fdd' /%3E%3C/svg%3E");
+    }
+  }
+  &-label {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    cursor: pointer;
+    & ~ .form-check {
+      margin-left: 8px;
+    }
+  }
+  &.without-label {
+    min-height: 0;
+    margin-bottom: 0px;
+  }
+  .check-looking-radio {
+    border-radius: 1px !important;
+    background-image: none;
+    &:checked {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+      background-color: $primary;
+    }
+  }
+  &.acknowledge-checkbox {
+    padding: 9px 16px 9px 40px;
+    border-radius: $border-radius;
+    background-color: $primary-light;
+    padding-left: 40px;
+    cursor: pointer;
+    &-input[type="checkbox"] {
+      background-image: url('data:image/svg + xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3e%3cpath fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 10l3 3l6-6"/%3e%3c/svg%3e');
+      background-color: white;
+    }
+    &:hover {
+      background-color: $info-light;
+    }
+  }  
+}
+
+/** Switch **/
+.form-switch {
+  .form-check {
+    &-input {
+      width: 30px;
+      height: 16px;
+      border-radius: 2em;
+    }
+  }
+  &.accent-success{
+    .form-check{
+      &-input{
+        &:checked{
+          background-color: $success;
+          border-color: $success;
+        }
+        &:focus{
+          border-color: #A7D2B2;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23a7d2b2ee'/%3E%3C/svg%3E");
+        }
+      }
+    }
+  }
+}
+.custom {
+  &-radio {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 0px;
+    .form-check {
+      &-input {
+        margin-left: 10px;
+        position: absolute;
+        margin-top: 0px;
+        &[type="radio"] {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2.8' fill='%23777171' /%3E%3C/svg%3E");
+        }
+        &:checked {
+          background-color: $white;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2.8' fill='%2334a852' /%3E%3C/svg%3E");
+          border-color: $success;
+          & ~ .form-check-label {
+            color: $success;
+            border: 1px solid $success;
+          }
+        }
+      }
+      &-label {
+        margin-bottom: 0px;
+        border: 1px solid $table-color;
+        border-radius: 2px;
+        padding: 6px 10px 6px 35px;
+      }
+    }
+
+    &.accent-dodger-blue{
+      .form-check {
+
+        &-input[type="radio"]{
+          &:checked{
+            background-color: $white;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='2.8' fill='%2319A6F5' /%3E%3C/svg%3E");
+            border-color: $dodger-blue;
+            & ~ .form-check-label {
+              color: $dodger-blue;
+              border: 1px solid $dodger-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.custom {
+  &-check {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 0px;
+    .form-check {
+      &-input {
+        margin-left: 10px;
+        position: absolute;
+        margin-top: 0px;
+        &:checked {
+          background-color: $success;
+          border-color: $success;
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+          & ~ .form-check-label {
+            color: $success;
+            border: 1px solid $success;
+          }
+        }
+      }
+      &-label {
+        margin-bottom: 0px;
+        border: 1px solid $table-color;
+        border-radius: 2px;
+        padding: 7px 10px 7px 35px;
+      }
+    }
+  }
+}

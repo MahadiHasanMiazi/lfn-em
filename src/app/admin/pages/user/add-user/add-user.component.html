@@ -1,0 +1,45 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Add User</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+
+<div class="modal-body row justify-content-center">
+  <div class="col-12">
+    <form class="row flat-inputs" [formGroup]="addUserForm" (ngSubmit)="addUser()">
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="email">Email <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Please type your email address" formControlName="email" (input)="emailInput()">
+        <div *ngIf="addUserForm.controls['email'].invalid && (addUserForm.controls['email'].dirty || addUserForm.controls['email'].touched)"
+          class="text-danger">
+          <div *ngIf="addUserForm.controls['email'].errors?.required">
+            Email address is required
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 form-group mb-3">
+        <label for="userRole">Role <sup class="text-danger">*</sup></label>
+        <select name="userRole" id="userRole" class="form-select" formControlName="userRole" (change)="selectRole()">
+          <option value="">--Select--</option>
+          <option value="Standard">Standard User</option>
+          <option value="Admin">Administrator</option>
+          <option value="MasterAdmin">Master admin</option>
+        </select>
+        <div *ngIf="addUserForm.controls['userRole'].touched && addUserForm.controls['userRole'].errors" class="text-danger">
+          <div *ngIf="addUserForm.controls['userRole'].errors.required">
+            User Role is required</div>
+        </div>
+      </div>
+      <div class="clearfix mb-4"></div>
+      <div class="col-12 col-md-6">
+        <button class="btn btn-secondary text-white text-capitalize w-100 btn-with-loader">
+          Add New User
+          <btn-loader *ngIf="isLoading"></btn-loader>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

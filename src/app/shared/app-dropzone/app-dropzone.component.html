@@ -1,0 +1,11 @@
+<dropzone #frontDropZone="ngxDropzone"
+          class="dropzone-1 mb-3"
+          [config]="config"
+          [message]="dropzoneMessage"
+          [placeholder]="dropzonePlaceholder"
+          [useDropzoneClass]="true"
+          (error)="oneUploadError($event)"
+          (success)="onUploadSuccess($event)"
+          (removedFile)="fileRemoved($event)"
+          (sending)="sentParams($event)">
+</dropzone>

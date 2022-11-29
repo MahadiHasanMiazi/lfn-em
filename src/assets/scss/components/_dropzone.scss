@@ -1,0 +1,76 @@
+/*------------------*
+# Dropzone
+*------------------*/
+
+dropzone.dropzone-1 > .dropzone.dz-wrapper {
+  display: flex;
+  border: 1px solid $c8c8;
+  border-radius: 15px;
+  min-height: 142px;
+  .dz-message {
+    margin: 0px;
+    background-color: #ffffff;
+    min-height: 142px;
+    border: 0px;
+    .dz-text {
+      width: 100%;
+      i {
+        font-size: 60px;
+        color: $c8c8;
+      }
+      span {
+        color: $c8c8;
+      }
+    }
+  }
+  .dz-placeholder {
+    margin: 0px auto;
+    .dz-image {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+      margin: 0 auto;
+      margin-top: 10px;
+      background-size: cover;
+    }
+    &.dz-message {
+      .dz-text {
+        width: calc(100% - 80px);
+      }
+    }
+  }
+  &.dz-single {
+    .dz-preview {
+      height: 100px;
+      width: 100px;
+      margin: 14px auto;
+      .dz-image {
+        border-radius: 5px;
+      }
+      .dz-error-mark {
+        svg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .dz-remove {
+        position: absolute;
+        right: -11px;
+        top: -11px;
+        z-index: 11;
+        width: 20px;
+        height: 20px;
+        border-radius: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $danger;
+        i {
+          color: white;
+          font-size: 10px;
+          cursor: pointer !important;
+        }
+      }
+    }
+  }
+}

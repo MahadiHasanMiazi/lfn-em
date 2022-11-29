@@ -1,0 +1,11 @@
+/*------------------*
+# boxes
+*------------------*/
+.stats {
+  &-box {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+}

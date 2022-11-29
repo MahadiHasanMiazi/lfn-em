@@ -1,0 +1,176 @@
+<!-- page title -->
+<div class="row g-0 align-items-start overflow-hidden">
+  <div class="col-sm-auto">
+    <div class="db-page-titles">
+      <h1 class="db-page-title text-tartiary mb-1">Contractor List</h1>
+      <!--      <h4 class="db-page-stat text-gray550 mb-5px">570 Contractors are available</h4>-->
+    </div>
+    <!--    <h2 class="db-page-subtitle text-tartiary">1130</h2>-->
+  </div>
+  <div class="col ms-auto">
+    <!--    <div class="row align-items-center justify-content-end">-->
+    <!--      <div class="col-auto mb-2">-->
+    <!--        <div class="input-group">-->
+    <!--          <input type="text" placeholder="Expected Date" class="form-control">-->
+    <!--          <span class="input-group-text">-->
+    <!--            <i class="icon-calendar"></i>-->
+    <!--          </span>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--      <div class="col-auto mb-2 ps-md-0">-->
+    <!--        <button class="btn btn-light btn-icon-only text-primary">-->
+    <!--          <i class="icon-text-file"></i>-->
+    <!--        </button>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  </div>
+</div>
+<!-- page title ends -->
+
+<!-- Page content box starts -->
+<div class="card mt-3">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field
+          [searchValue]="searchText"
+          (searchValueChange)="showSearchResult($event)"
+        ></table-search-field>
+      </div>
+      <div class="col-auto ms-xl-auto mb-2">
+        <!--        <select class="form-select">-->
+        <!--          <option value="">Jun 2020 - July 2020</option>-->
+        <!--          <option value="1">Dhaka</option>-->
+        <!--          <option value="2">Gazipur</option>-->
+        <!--          <option value="3">Narayan Gonj</option>-->
+        <!--        </select>-->
+      </div>
+      <div class="col-auto mb-2">
+        <!--        <select class="form-select">-->
+        <!--          <option value="">&#45;&#45;Status&#45;&#45;</option>-->
+        <!--          <option value="1">Dhaka</option>-->
+        <!--          <option value="2">Gazipur</option>-->
+        <!--          <option value="3">Narayan Gonj</option>-->
+        <!--        </select>-->
+      </div>
+      <div class="col-auto mb-2">
+        <button
+          class="btn btn-outline-primary btn-with-icon"
+          (click)="openAddUserModal()"
+        >
+          <i class="icon-add me-3"></i>
+          Add Contractor
+        </button>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table
+      [isDataLoaded]="isLoaded"
+      [row]="10"
+      [column]="8"
+      [dataLength]="contractorList?.length"
+      [paging]="paging"
+      (onPageChange)="pageChanged($event)"
+    >
+      <ng-container tableHeader>
+        <th class="text-nowrap cursor-pointer">
+          Number
+          <i
+            class="d-inline-flex"
+            class="icon-arrow-down"
+          ></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Name
+          <i
+            class="d-inline-flex"
+            class="icon-arrow-down rotate-180"
+          ></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Designation
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Role
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Email
+          <i
+            class="d-inline-flex"
+            class="icon-arrow-down"
+          ></i>
+        </th>
+        <th class="text-nowrap cursor-pointer">
+          Phone
+          <i
+            class="d-inline-flex"
+            class="icon-arrow-down"
+          ></i>
+        </th>
+        <th class="text-nowrap text-center cursor-pointer">
+          Status
+          <i
+            class="d-inline-flex"
+            class="icon-arrow-down"
+          ></i>
+        </th>
+        <th class="text-nowrap text-center  cursor-pointer">
+          Action
+        </th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr
+          class="cursor-pointer"
+          *ngFor="let item of contractorList; let i = index"
+        >
+          <td>
+            {{(paging.CurrentPage * paging.PageSize) - (paging.PageSize - 1) + i}}
+          </td>
+          <td>
+            <!--            <user-thumb-name [userData]="userData"></user-thumb-name>-->
+            {{fullName(item)}}
+          </td>
+          <td>
+            {{item.designation}}
+          </td>
+          <td>
+            {{item.roles}}
+          </td>
+          <td>
+            {{item.businessEmail}}
+          </td>
+          <td>
+            {{item.phone}}
+          </td>
+          <td class="text-center">
+            <div
+              class="btn btn-sm rounded-pill cursor-default mx-auto fw-bold"
+              [ngClass]="statusColor(item.employeeStatus)"
+            >
+              {{status(item.employeeStatus)}}
+            </div>
+          </td>
+          <td class="text-center">
+            <div
+              ngbDropdown
+              container="body"
+            >
+              <a
+                ngbDropdownToggle
+                class="no-drop-icon"
+              >
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>
+<!-- Page content box ends -->

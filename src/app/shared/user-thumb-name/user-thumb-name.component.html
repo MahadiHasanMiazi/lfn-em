@@ -1,0 +1,9 @@
+<div class="user-meta">
+  <div class="user-thumb">
+    <img *ngIf="userData.ProPic == null || userData.ProPic == '' " src="assets/images/male-avatar.jpg" alt="">
+    <img *ngIf="userData.ProPic != null && userData.ProPic != '' " src="{{baseUrl}}/Media/Profiles/{{userData.ProPic}}" alt="">
+  </div>
+  <div class="user-info">
+    <p class="user-name">{{userData.UserName }}</p>
+  </div>
+</div>

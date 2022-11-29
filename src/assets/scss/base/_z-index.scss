@@ -1,0 +1,20 @@
+/*------------------*
+# z-index
+*------------------*/
+$z-indexes: (
+  "header": 1040,
+  "sidebar": 1045,
+  "phone-dropdown": 1055,
+  "confrm-bcdrop": 1055,
+  "alert": 1060,
+);
+
+// function for z-index
+
+@function z($val) {
+  @if not map-has-key($z-indexes, $val) {
+    @warn "No Layer found for '#{$val}' in $z-layers map. Property omitted.";
+  }
+
+  @return map-get($z-indexes, $val);
+}

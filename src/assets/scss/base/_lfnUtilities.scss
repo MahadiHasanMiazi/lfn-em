@@ -1,0 +1,135 @@
+/*------------------*
+# Utilities
+*------------------*/
+$utilities: map-merge(
+  $utilities,
+  (
+    "rotate": (
+      property: transform,
+      class: rotate,
+      values: (
+        90: rotate(90deg),
+        180: rotate(180deg),
+        270: rotate(270deg),
+      ),
+    ),
+    "fs": (
+      property: font-size,
+      class: fs,
+      values: (
+        3: 3px,
+        6: 6px,
+        7: 7px,
+        8: 8px,
+        9: 9px,
+        10: 10px,
+        11: 11px,
+        12: 12px,
+        14: 14px,
+        15: 15px,
+        16: 16px,
+        18: 18px,
+        19: 19px,
+        20: 20px,
+        22: 22px,
+        24: 24px,
+        25: 25px,
+        26: 26px,
+        30: 30px,
+        36: 36px,
+        60: 60px,
+      ),
+    ),
+    "fw": (
+      property: font-weight,
+      class: fw,
+      values: (
+        300: 300,
+        400: 400,
+        500: 500,
+        700: 700,
+        800: 800,
+      ),
+    ),
+    "mw": (
+      property: min-width,
+      class: mw,
+      values: (
+        290: 290px,
+      ),
+    ),
+    "w": (
+      property: width,
+      class: w,
+      values: (
+        44: 44px,
+        50: 50px,
+        70: 70px,
+        120: 120px,
+      ),
+    ),
+    "h": (
+      property: height,
+      class: h,
+      values: (
+        40: 40px,
+        44: 44px,
+        50: 50px,
+        52: 52px,
+        70: 70px,
+        120: 120px,
+      ),
+    ),
+    "lh": (
+      property: line-height,
+      class: lh,
+      values: (
+        24: 24px,
+        48: 48px,
+        19: 19px
+      ),
+    ),
+  )
+);
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .border#{$infix}-top {
+      border-top: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-end {
+      border-right: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-bottom {
+      border-bottom: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-start {
+      border-left: $border-width solid $border-color !important;
+    }
+
+    .border#{$infix}-top-0 {
+      border-top: 0 !important;
+    }
+    .border#{$infix}-end-0 {
+      border-right: 0 !important;
+    }
+    .border#{$infix}-bottom-0 {
+      border-bottom: 0 !important;
+    }
+    .border#{$infix}-start-0 {
+      border-left: 0 !important;
+    }
+
+    .border#{$infix}-x {
+      border-left: $border-width solid $border-color !important;
+      border-right: $border-width solid $border-color !important;
+    }
+
+    .border#{$infix}-y {
+      border-top: $border-width solid $border-color !important;
+      border-bottom: $border-width solid $border-color !important;
+    }
+  }
+}

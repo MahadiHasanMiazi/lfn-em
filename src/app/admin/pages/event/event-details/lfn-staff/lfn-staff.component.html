@@ -1,0 +1,198 @@
+<div class="row align-items-stretch mb-3">
+  <div class="col-12 col-lg-4 mb-3 d-flex flex-column">
+    <div class="card">
+      <div class="card-body">
+        <div class="section-title-2 border-c8c8 mb-4">
+          <h2 class="border-c8c8">Requirement</h2>
+          <a [routerLink]="[]" class="ms-auto text-gray550">
+            <i class="icon-edit fs-18"></i>
+          </a>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <table class="table table-borderless table-stats">
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Doctor</td>
+                  <td>1</td>
+                  <td><i class="icon-verify text-success align-middle"></i></td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">Nurse</td>
+                  <td>2</td>
+                  <td><i class="icon-warning-o text-success align-middle"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-12 col-lg-6">
+            <table class="table table-borderless table-stats">
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Asst. Nurse</td>
+                  <td>0</td>
+                  <td><i class="icon-warning-o text-gray550 align-middle"></i></td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">Staff</td>
+                  <td>0</td>
+                  <td><i class="icon-warning-o text-gray550 align-middle"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-8 mb-3 d-flex flex-column">
+    <div class="card flex-grow-1">
+      <div class="card-body">
+        <div class="section-title-2 border-c8c8 mb-4">
+          <h2 class="border-c8c8">Vendor Requirement</h2>
+          <!-- <a [routerLink]="[]" class="ms-auto text-gray550">
+            <i class="icon-edit fs-18"></i>
+          </a> -->
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-5">
+            <table class="table table-borderless table-stats">
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Date</td>
+                  <td>mm/dd/yyyy</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">Time</td>
+                  <td>hh:mm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-12 col-lg-7">
+            <table class="table table-borderless table-stats">
+              <tbody>
+                <tr>
+                  <td class="fw-bold">Event Name</td>
+                  <td>Health & welfare Event</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">Location</td>
+                  <td>1717 Main Street, Suite STE 5630, Dallas, TX 75201, US</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <!-- Card header items starts -->
+    <div class="row mb-1">
+      <div class="col-auto mb-2">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+      <div class="col-auto mb-2 ms-xl-auto">
+        <select class="form-select">
+          <option value="" selected>Category</option>
+          <option value="nutritionists">Nutritionists</option>
+          <option value="yoga">Yoga</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <select class="form-select">
+          <option value="" selected>Status</option>
+          <option value="invited">Invited</option>
+          <option value="notGoing">Not Going</option>
+        </select>
+      </div>
+      <div class="col-auto mb-2">
+        <button class="btn btn-with-icon btn-outline-success fw-bold" (click)="openInviteStaff()">
+          <i class="icon-arrow-right-o me-2"></i>
+          Invite Staff
+        </button>
+      </div>
+    </div>
+    <!-- Card header items ends -->
+    <list-table [isDataLoaded]="true" [row]="6" [column]="11" [dataLength]="100" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th>Personnel</th>
+        <th>Scheduled Time</th>
+        <th>Personnel Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Category</th>
+        <th>Status</th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr>
+          <td>Doctor</td>
+          <td>hh:mm to hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            (208) 555-0112
+          </td>
+          <td>
+            info@example.com
+          </td>
+          <td>
+            Dental Office
+          </td>
+          <td>
+            <div class="text-secondary">
+              Pending
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Nurse</td>
+          <td>hh:mm to hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            (303) 555-0105
+          </td>
+          <td>
+            info@example.com
+          </td>
+          <td>
+            Dental Office
+          </td>
+          <td>
+            <div class="text-success">
+              Delivered
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Asst. Nurse</td>
+          <td>hh:mm to hh:mm</td>
+          <td>
+            <user-thumb-name [userData]="userData"></user-thumb-name>
+          </td>
+          <td>
+            (480) 555-0103
+          </td>
+          <td>
+            info@example.com
+          </td>
+          <td>
+            Dental Office
+          </td>
+          <td>
+            <div class="text-danger">
+              Processing
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<!-- <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissable">
+  {{alert.message}}
+  <a class="close" (click)="removeAlert(alert)">&times;</a>
+</div> -->
+
+<div class="alert {{cssClass(alert)}} d-flex animated fast fadeInRightBig" [ngClass]="{'fadeOutRightBig': alert.readyToClear}" role="alert"
+  *ngFor="let alert of alerts">
+  <!-- <div class="alert-icon {{cssClass(alert)}} align-self-start">
+    <div class="alert-icon_circle">
+      <i class="{{ iconClass(alert) }}"></i>
+    </div>
+  </div> -->
+
+  <!-- <div class="alert-content align-self-center mr-auto"> -->
+  <!-- title -->
+  <h4 class="me-3">{{alert.message}}</h4>
+
+  <!-- meta -->
+  <p class="meta" *ngIf="alert.time">{{alert.time}}</p>
+  <!-- </div> -->
+
+  <a [routerLink]="" class="alert-close align-self-start" (click)="removeAlert(alert);"><i class="icon-close"></i></a>
+</div>

@@ -1,0 +1,21 @@
+<registration-form-wrapper [stepNo]="4">
+  <ng-container form-heading>
+    <h3 class="text-dark text-center mb-3"><b>Verify OTP Code</b></h3>
+    <p class="mb-80">Enter 6 digit verificaton code we have sent to
+      XXX-XXX-{{ phone?.slice(-4) }}. <br /> Resend
+      after {{counter | formatTime}}</p>
+  </ng-container>
+
+  <div>
+    <verify-otp
+      [digits]="6"
+      [isLoading]="isLoading"
+      [clearOtp]="isClearOtp"
+      (onOtpExpire)="resendOtp()"
+      (onResendOtp)="resendOtp()"
+      (onOtpInput)="verifyOtp($event)"
+      (count)="updateCount($event)"
+    >
+    </verify-otp>
+  </div>
+</registration-form-wrapper>

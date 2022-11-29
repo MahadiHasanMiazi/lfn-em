@@ -1,0 +1,108 @@
+<div class="section-title-2 mb-4">
+  <h2>Event list</h2>
+</div>
+<div class="card">
+  <div class="card-body pt-0">
+    <div class="row my-3">
+      <div class="col-auto">
+        <table-search-field [searchValue]="searchText" (searchValueChange)="showSearchResult($event)"></table-search-field>
+      </div>
+      <div class="col-auto mb-2 ms-xl-auto">
+        <select class="form-select">
+          <option value="">--Select district--</option>
+          <option value="1">Dhaka</option>
+          <option value="2">Gazipur</option>
+          <option value="3">Narayan Gonj</option>
+        </select>
+      </div>
+    </div>
+    <list-table [isDataLoaded]="true" [row]="6" [column]="6" [dataLength]="50" [paging]="paging" (onPageChange)="pageChanged($event)">
+      <ng-container tableHeader>
+        <th class="text-nowrap">
+          Event Number
+        </th>
+        <th class="text-nowrap">
+          Event Date
+        </th>
+        <th class="text-nowrap text-center">
+          Amount
+        </th>
+        <th class="text-nowrap text-center">
+          Payment
+        </th>
+        <th class="text-nowrap text-center">
+          Status
+        </th>
+        <th class="text-nowrap text-center">
+          Action
+        </th>
+      </ng-container>
+      <ng-container tableBody>
+        <tr>
+          <td>
+            <div class="text-primary">LFN795474378</div>
+          </td>
+          <td>
+            Jun 20, 2020
+          </td>
+          <td class="text-center">
+            $450.54
+          </td>
+          <td class="text-center">
+            <div class="btn btn-sm rounded-pill cursor-default mx-auto fw-bold btn-secondary-light text-secondary">
+              Pending
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="btn btn-sm rounded-pill cursor-default mx-auto fw-bold btn-secondary-light text-secondary">
+              Pending
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="text-primary">LFN795474378</div>
+          </td>
+          <td>
+            Jun 20, 2020
+          </td>
+          <td class="text-center">
+            $475.22
+          </td>
+          <td class="text-center">
+            <div class="btn btn-sm rounded-pill cursor-default mx-auto fw-bold btn-success-light text-success">
+              Success
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="btn btn-sm rounded-pill cursor-default mx-auto fw-bold btn-success-light text-success">
+              Delivered
+            </div>
+          </td>
+          <td class="text-center">
+            <div ngbDropdown container="body">
+              <a ngbDropdownToggle class="no-drop-icon">
+                <i class="icon-action fs-24"></i>
+              </a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Edit</button>
+                <button ngbDropdownItem>Delete</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </list-table>
+  </div>
+</div>

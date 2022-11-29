@@ -1,0 +1,25 @@
+/*------------------*
+# Alert
+*------------------*/
+.alert {
+  padding: 0.5rem 1rem;
+  min-width: 320px;
+  width: auto;
+  h4 {
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .alert {
+    &-close {
+      margin-left: auto;
+    }
+  }
+}
+@each $color, $value in $theme-colors {
+  .alert.alert-#{$color} {
+    .alert-close {
+      color: shift-color($value, $alert-color-scale);
+    }
+  }
+}

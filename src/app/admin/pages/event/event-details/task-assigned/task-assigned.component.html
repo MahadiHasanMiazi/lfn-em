@@ -1,0 +1,55 @@
+<div class="modal-header justify-content-center">
+  <div class="col-12 d-flex justify-content-start">
+    <h4 class="modal-title">Task Assigned</h4>
+    <a [routerLink]="[]" class="btn-link modal-close" aria-label="Close" (click)="_modal.close()">
+      <i class="icon-close"></i>
+    </a>
+  </div>
+</div>
+<div class="modal-body">
+  <div class="row flat-inputs">
+    <div class="col-12 form-group mb-3">
+      <label for="assigned">Assigned</label>
+      <input type="text" class="form-control" placeholder="personnels Name">
+    </div>
+    <div class="col-12 col-md-6 form-group mb-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" placeholder="eg: theresa@gmail.com">
+    </div>
+    <div class="col-12 col-md-6 form-group mb-3">
+      <label for="eventName">Event Name</label>
+      <select id="" class="form-select">
+        <option value="1">Event Name</option>
+        <option value="2">Covid Test Event</option>
+        <option value="3">Mass Vaccination</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-6 form-group mb-3">
+      <label for="date">Date</label>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="mm/dd/yyyy">
+        <span class="input-group-text">
+          <i class="icon-calendar"></i>
+        </span>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 form-group mb-3">
+      <label for="time">Time</label>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="hh:mm">
+        <span class="input-group-text">
+          <i class="icon-time"></i>
+        </span>
+      </div>
+    </div>
+    <div class="col-12 form-group mb-3">
+      <label for="desc">Task Description</label>
+      <textarea id="" cols="30" rows="5" class="form-control" placeholder="Write Description" style="height: 64px;"></textarea>
+    </div>
+    <div class="col-12 col-md-6 mt-4">
+      <button class="btn btn-lg btn-secondary fw-bold w-100 text-white">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://microservices.redlimesolutions.ml",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
